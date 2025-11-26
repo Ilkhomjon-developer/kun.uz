@@ -1,0 +1,94 @@
+### Post create
+POST localhost:8080/profile/create
+Content-Type: application/json
+
+{
+  "name": "Ali",
+  "surname": "Aliyev",
+  "password": "ali",
+  "roleList": ["ROLE_MODERATOR"],
+  "username": "+998991234567"
+}
+
+###
+POST localhost:8080/profile/create
+Content-Type: application/json
+
+{
+  "name": "Vali",
+  "surname": "Valiyev",
+  "password": "vali123",
+  "roleList": ["ROLE_PUBLISHER"],
+  "username": "+998901112233"
+}
+
+###
+POST localhost:8080/profile/create
+Content-Type: application/json
+
+{
+  "name": "Aziz",
+  "surname": "Azizov",
+  "password": "aziz2024",
+  "roleList": ["ROLE_MODERATOR"],
+  "username": "+998907778899"
+}
+
+###
+POST localhost:8080/profile/create
+Content-Type: application/json
+
+{
+  "name": "Jasur",
+  "surname": "Jasurov",
+  "password": "jasur777",
+  "roleList": ["ROLE_MODERATOR"],
+  "username": "+998931234500"
+}
+
+###
+POST localhost:8080/profile/create
+Content-Type: application/json
+
+{
+  "name": "Sherzod",
+  "surname": "Sherzodov",
+  "password": "sherzod321",
+  "roleList": ["ROLE_PUBLISHER"],
+  "username": "+998935550011"
+}
+
+### Update
+PUT localhost:8080/profile/update/2
+Content-Type: application/json
+
+{
+  "name": "Vali Valiyev Valijon",
+  "surname": "Valiyev 11",
+  "password": "vali123",
+  "roleList": ["ROLE_MODERATOR", "ROLE_PUBLISHER"],
+  "username": "+99890 00 00 00 00"
+}
+
+
+### Update
+PUT localhost:8080/profile/update/3
+Content-Type: application/json
+
+{
+  "name": "Test update id 3",
+  "surname": "Valiyev 11",
+  "password": "vali123",
+  "roleList": ["ROLE_MODERATOR", "ROLE_PUBLISHER"],
+  "username": "+99890 00 00 77 77"
+}
+
+### Post pagination
+POST localhost:8080/profile/pagination?page=1&size=2
+
+### DELETE
+DELETE localhost:8080/profile/delete/2
+
+### update password
+PUT localhost:8080/profile/updatePassword/5/yyyyyyy
+

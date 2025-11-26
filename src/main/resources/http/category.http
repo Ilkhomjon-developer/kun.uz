@@ -1,0 +1,80 @@
+### Post
+POST localhost:8080/category/create
+Content-Type: application/json
+
+{
+  "orderNumber": 1,
+  "nameUz": "jahon",
+  "nameEn": "global",
+  "nameRu": "мировой",
+  "categoryKey": "jahon"
+}
+
+###
+POST localhost:8080/category/create
+Content-Type: application/json
+
+{
+  "orderNumber": 2,
+  "nameUz": "sport",
+  "nameEn": "sports",
+  "nameRu": "спорт",
+  "categoryKey": "sport"
+}
+
+###
+POST localhost:8080/category/create
+Content-Type: application/json
+
+{
+  "orderNumber": 3,
+  "nameUz": "texnologiya",
+  "nameEn": "technology",
+  "nameRu": "технология",
+  "categoryKey": "tech"
+}
+
+###
+POST localhost:8080/category/create
+Content-Type: application/json
+
+{
+  "orderNumber": 4,
+  "nameUz": "madaniyat",
+  "nameEn": "culture",
+  "nameRu": "культура",
+  "categoryKey": "culture"
+}
+
+###
+POST localhost:8080/category/create
+Content-Type: application/json
+
+{
+  "orderNumber": 5,
+  "nameUz": "iqtisod",
+  "nameEn": "economy",
+  "nameRu": "экономика",
+  "categoryKey": "economy"
+}
+
+### UPDATE
+PUT localhost:8080/category/update/1
+Content-Type: application/json
+
+{
+  "nameUz": "jahon1",
+  "nameEn": "global1",
+  "nameRu": "мировой1",
+  "categoryKey": "jahon"
+}
+
+### DELETE
+DELETE localhost:8080/category/delete/5
+
+### GET
+GET localhost:8080/category/getAll
+
+### GET
+GET localhost:8080/category/getAllByLang
+Accept-Language: RU

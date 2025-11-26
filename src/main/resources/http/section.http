@@ -1,0 +1,79 @@
+### POST
+POST localhost:8080/section/create
+Content-Type: application/json
+
+{
+  "orderNumber": 1,
+  "nameUz": "Asosiy",
+  "nameRu": "Основной",
+  "nameEn": "Main",
+  "sectionKey": "main"
+}
+
+###
+POST localhost:8080/section/create
+Content-Type: application/json
+
+{
+  "orderNumber": 2,
+  "nameUz": "Yangiliklar",
+  "nameRu": "Новости",
+  "nameEn": "News",
+  "sectionKey": "news"
+}
+
+###
+POST localhost:8080/section/create
+Content-Type: application/json
+
+{
+  "orderNumber": 3,
+  "nameUz": "Dolzarb",
+  "nameRu": "Актуальное",
+  "nameEn": "Trending",
+  "sectionKey": "trending"
+}
+
+###
+POST localhost:8080/section/create
+Content-Type: application/json
+
+{
+  "orderNumber": 4,
+  "nameUz": "Tahlil",
+  "nameRu": "Аналитика",
+  "nameEn": "Analysis",
+  "sectionKey": "analysis 1"
+}
+
+###
+POST localhost:8080/section/create
+Content-Type: application/json
+
+{
+  "orderNumber": 5,
+  "nameUz": "Intervyu",
+  "nameRu": "Интервью",
+  "nameEn": "Interview",
+  "sectionKey": "interview"
+}
+
+
+### UPDATE
+PUT localhost:8080/section/update/13
+Content-Type: application/json
+
+{
+  "nameUz": "Intervyu111",
+  "nameRu": "Интервью111",
+  "nameEn": "Interview111",
+  "sectionKey": "interview 1"
+}
+
+### DELETE
+DELETE localhost:8080/section/delete/9
+
+### GET
+GET localhost:8080/section/getAllByLang
+Accept-Language: EN
+

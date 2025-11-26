@@ -1,0 +1,87 @@
+### Create region
+POST localhost:8080/region/create
+Content-Type: application/json
+
+{
+  "orderNumber": 1,
+  "nameUz": "Toshkent",
+  "nameRu": "Ташкент",
+  "nameEn": "Tashkent",
+  "regionKey": "tashkent"
+}
+
+
+### POST create
+POST localhost:8080/region/create
+Content-Type: application/json
+
+{
+"orderNumber": 2,
+"nameUz": "Samarqand",
+"nameRu": "Самарканд",
+"nameEn": "Samarkand",
+"regionKey": "samarkand"
+}
+
+
+### POST create
+
+POST localhost:8080/region/create
+Content-Type: application/json
+
+{
+  "orderNumber": 3,
+  "nameUz": "Buxoro",
+  "nameRu": "Бухара",
+  "nameEn": "Bukhara",
+  "regionKey": "bukhara"
+}
+
+### POST create
+POST localhost:8080/region/create
+Content-Type: application/json
+
+{
+  "orderNumber": 4,
+  "nameUz": "Farg‘ona",
+  "nameRu": "Фергана",
+  "nameEn": "Fergana",
+  "regionKey": "fergana"
+}
+
+### POST create
+POST localhost:8080/region/create
+Content-Type: application/json
+
+{
+  "orderNumber": 5,
+  "nameUz": "Xorazm",
+  "nameRu": "Хорезм",
+  "nameEn": "Khorezm",
+  "regionKey": "khorezm"
+}
+
+
+
+### Update region
+PUT localhost:8080/region/update/5
+Content-Type: application/json
+
+{
+  "orderNumber": 2,
+  "nameUz": "Iqtisodiyot",
+  "nameRu": "Экономика",
+  "nameEn": "Economics",
+  "categoryKey": "iqtisodiyot"
+}
+
+
+### Delete category
+DELETE localhost:8080/region/delete/2
+
+### Get region list
+GET localhost:8080/region/getAll
+
+### Get region by lang
+GET localhost:8080/region/lang
+Accept-Language: EN
