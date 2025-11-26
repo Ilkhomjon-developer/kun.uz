@@ -8,20 +8,22 @@ import dasturlash.uz.repository.ProfileRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProfileRoleService {
 
     @Autowired
     private ProfileRoleRepository profileRoleRepository;
 
-    public void createRole(Integer profileId, ProfileDTO dto){
+    public void createRole(Integer profileId, List<ProfileRole> roleList){
 
-        if(dto.getRoleList().isEmpty()){
+        if(roleList.isEmpty()){
 
             throw new AppBadException("Role list is empty");
         }
 
-        for (ProfileRole role : dto.getRoleList()){
+        for (ProfileRole role :roleList){
             ProfileRoleEntity entity = new ProfileRoleEntity();
             entity.setProfileId(profileId);
             entity.setRoles(role);

@@ -46,7 +46,7 @@ public class ProfileService {
 
         profileRepository.save(entity);
 
-        profileRoleService.createRole(entity.getId(),dto);
+        profileRoleService.createRole(entity.getId(),dto.getRoleList());
 
         dto.setId(entity.getId());
         dto.setCreatedDate(entity.getCreatedDate());

@@ -31,6 +31,7 @@ public class ProfileDTO {
     private GeneralStatus status;
     private List<ProfileRole> roleList;
     private LocalDateTime createdDate;
+    private String token;
 
 
 }
