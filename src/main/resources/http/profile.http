@@ -55,7 +55,8 @@ Content-Type: application/json
   "surname": "Sherzodov",
   "password": "sherzod321",
   "roleList": ["ROLE_PUBLISHER"],
-  "username": "+998935550011"
+  "status": "ACTIVE",
+  "username": "+998935550071"
 }
 
 ### Update
@@ -90,5 +91,5 @@ POST localhost:8080/profile/pagination?page=1&size=2
 DELETE localhost:8080/profile/delete/2
 
 ### update password
-PUT localhost:8080/profile/updatePassword/5/yyyyyyy
+PUT localhost:8080/profile/updatePassword/4/yyyyyyy
 

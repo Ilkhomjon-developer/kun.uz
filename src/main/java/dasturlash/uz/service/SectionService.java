@@ -4,6 +4,8 @@ import dasturlash.uz.dto.SectionDTO;
 import dasturlash.uz.entity.SectionEntity;
 import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.exps.AppBadException;
+import dasturlash.uz.mapper.RegionMapper;
+import dasturlash.uz.mapper.SectionMapper;
 import dasturlash.uz.repository.SectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -105,26 +107,32 @@ public class SectionService {
 
     public List<SectionDTO> getAllByLang(AppLanguageEnum lang){
 
-        Iterable<SectionEntity> entityList = sectionRepository.findAllByVisibleIsTrue();
+        Iterable<SectionMapper> entityList = sectionRepository.findAllByLanguageAndVisibleIsTrue(lang.name());
         List<SectionDTO> dtoList = new ArrayList<>();
 
-        entityList.forEach(entity -> dtoList.add(toLanguageResponseDTO(entity,lang)));
+        entityList.forEach(mapper -> {
+            SectionDTO dto = new SectionDTO();
+            dto.setId(mapper.getId());
+            dto.setOrderNumber(mapper.getOrderNumber());
+            dto.setSectionKey(mapper.getSectionKey());
+            dto.setName(mapper.getName());
+
+            dtoList.add(dto);
+        });
 
         return dtoList;
     }
 
-    private SectionDTO toLanguageResponseDTO(SectionEntity entity, AppLanguageEnum lang) {
+
+
+    private SectionDTO toLanguageResponseDTO(SectionMapper mapper) {
 
         SectionDTO dto = new SectionDTO();
-        dto.setId(entity.getId());
-        dto.setOrderNumber(entity.getOrderNumber());
-        dto.setSectionKey(entity.getSectionKey());
-        switch (lang){
-            case UZ -> dto.setNameUz(entity.getNameUz());
-            case RU -> dto.setNameRu(entity.getNameRu());
-            case EN -> dto.setNameEn(entity.getNameEn());
+        dto.setId(mapper.getId());
+        dto.setOrderNumber(mapper.getOrderNumber());
+        dto.setSectionKey(mapper.getSectionKey());
+        dto.setName(mapper.getName());
 
-        }
         return dto;
 
     }

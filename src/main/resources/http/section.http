@@ -60,7 +60,7 @@ Content-Type: application/json
 
 
 ### UPDATE
-PUT localhost:8080/section/update/13
+PUT localhost:8080/section/update/5
 Content-Type: application/json
 
 {
@@ -71,7 +71,7 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE localhost:8080/section/delete/9
+DELETE localhost:8080/section/delete/4
 
 ### GET
 GET localhost:8080/section/getAllByLang

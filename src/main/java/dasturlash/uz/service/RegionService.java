@@ -4,6 +4,7 @@ import dasturlash.uz.dto.RegionDTO;
 import dasturlash.uz.entity.RegionEntity;
 import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.exps.AppBadException;
+import dasturlash.uz.mapper.RegionMapper;
 import dasturlash.uz.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,11 +88,20 @@ public class RegionService {
 
     public List<RegionDTO> getAllByLang(AppLanguageEnum lang) {
 
-        Iterable<RegionEntity> iterable = regionRepository.findAllByVisibleIsTrue();
-        List<RegionDTO> dtos = new LinkedList<>();
-        iterable.forEach(entity -> dtos.add(toLangResponseDto(entity, lang)));
+        Iterable<RegionMapper> iterable = regionRepository.findAllByLanguageAndVisibleIsTrue(lang.name());
+        List<RegionDTO> dtoList = new LinkedList<>();
+        iterable.forEach(mapper -> {
 
-        return dtos;
+            RegionDTO dto = new RegionDTO();
+            dto.setId(mapper.getId());
+            dto.setRegionKey(mapper.getRegionKey());
+            dto.setOrderNumber(mapper.getOrderNumber());
+            dto.setName(mapper.getName());
+            dtoList.add(dto);
+
+        });
+
+        return dtoList;
     }
 
     private RegionDTO toLangResponseDto(RegionEntity entity, AppLanguageEnum lang) {

@@ -4,8 +4,8 @@ import dasturlash.uz.dto.AuthDTO;
 import dasturlash.uz.dto.ProfileDTO;
 import dasturlash.uz.dto.RegistrationDTO;
 import dasturlash.uz.entity.ProfileEntity;
-import dasturlash.uz.enums.GeneralStatus;
 import dasturlash.uz.enums.ProfileRole;
+import dasturlash.uz.enums.ProfileStatus;
 import dasturlash.uz.exps.AppBadException;
 import dasturlash.uz.repository.ProfileRepository;
 import dasturlash.uz.repository.ProfileRoleRepository;
@@ -34,7 +34,7 @@ public class AuthService {
         if(optional.isPresent()){
 
             ProfileEntity profile = optional.get();
-            if(profile.getStatus().equals(GeneralStatus.REGISTERING)){
+            if(profile.getStatus().equals(ProfileStatus.REGISTERING)){
 
                 profileRoleRepository.deleteByProfileId(profile.getId());
                 profileRepository.deleteById(profile.getId());
@@ -49,7 +49,7 @@ public class AuthService {
         entity.setUsername(dto.username());
         entity.setName(dto.name());
         entity.setSurname(dto.surname());
-        entity.setStatus(GeneralStatus.REGISTERING);
+        entity.setStatus(ProfileStatus.REGISTERING);
         entity.setPassword(dto.password());
 
         profileRepository.save(entity);
@@ -73,7 +73,7 @@ public class AuthService {
             throw new AppBadException("Username or password is incorrect");
         }
 
-        if(!optional.get().getStatus().equals(GeneralStatus.ACTIVE)){
+        if(!optional.get().getStatus().equals(ProfileStatus.ACTIVE)){
             throw new AppBadException("Your account is not active");
         }
 

@@ -1,6 +1,6 @@
 package dasturlash.uz.enums;
 
-public enum GeneralStatus {
+public enum ProfileStatus {
 
     ACTIVE, BLOCKED, REGISTERING
 }

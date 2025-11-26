@@ -18,7 +18,7 @@ public class SectionEntity {
     private Integer id;
 
     @Column(name = "order_number")
-    private String orderNumber;
+    private Integer orderNumber;
 
     @Column(name = "name_uz")
     private String nameUz;

@@ -14,9 +14,9 @@ public class SectionDTO {
 
     private Integer id;
 
-    @NotEmpty(message = "Order number required")
+
     @Positive(message = "Order number must be positive")
-    private String orderNumber;
+    private Integer orderNumber;
 
     @NotEmpty(message = "nameUz  required")
     private String nameUz;

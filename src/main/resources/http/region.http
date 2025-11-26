@@ -72,7 +72,7 @@ Content-Type: application/json
   "nameUz": "Iqtisodiyot",
   "nameRu": "Экономика",
   "nameEn": "Economics",
-  "categoryKey": "iqtisodiyot"
+  "regionKey": "iqtisodiyot"
 }
 
 

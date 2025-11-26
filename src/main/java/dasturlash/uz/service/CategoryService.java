@@ -4,6 +4,7 @@ import dasturlash.uz.dto.CategoryDTO;
 import dasturlash.uz.entity.CategoryEntity;
 import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.exps.AppBadException;
+import dasturlash.uz.mapper.CategoryMapper;
 import dasturlash.uz.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,6 +65,7 @@ public class CategoryService {
 
         categoryRepository.save(entity);
 
+        dto.setId(entity.getId());
         return dto;
 
     }
@@ -97,11 +99,21 @@ public class CategoryService {
 
     public List<CategoryDTO> getAllByLang(AppLanguageEnum lang) {
 
-        Iterable<CategoryEntity> iterable = categoryRepository.getAllByVisibleIsTrue();
-        List<CategoryDTO> dtos = new LinkedList<>();
-        iterable.forEach(entity -> dtos.add(toLangResponseDto(entity, lang)));
+        Iterable<CategoryMapper> iterable = categoryRepository.findAllByLanguageAndVisibleIsTrue(lang.name());
+        List<CategoryDTO> dtoList = new LinkedList<>();
+        iterable.forEach(mapper -> {
 
-        return dtos;
+            CategoryDTO dto = new CategoryDTO();
+            dto.setId(mapper.getId());
+            dto.setCategoryKey(mapper.getCategoryKey());
+            dto.setOrderNumber(mapper.getOrderNumber());
+            dto.setName(mapper.getName());
+
+            dtoList.add(dto);
+
+        });
+
+        return dtoList;
     }
 
     private CategoryDTO toLangResponseDto(CategoryEntity entity, AppLanguageEnum lang) {

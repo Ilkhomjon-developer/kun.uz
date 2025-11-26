@@ -1,7 +1,7 @@
 package dasturlash.uz.dto;
 
-import dasturlash.uz.enums.GeneralStatus;
 import dasturlash.uz.enums.ProfileRole;
+import dasturlash.uz.enums.ProfileStatus;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 public class ProfileDTO {
 
-    @NotBlank
+
     private Integer id;
 
     @NotBlank(message = "name cannot be null")
@@ -28,7 +28,7 @@ public class ProfileDTO {
     @NotBlank(message = "password cannot be null")
     private String password;
 
-    private GeneralStatus status;
+    private ProfileStatus status;
     private List<ProfileRole> roleList;
     private LocalDateTime createdDate;
     private String token;
