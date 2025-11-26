@@ -1,7 +1,6 @@
 package dasturlash.uz.repository;
 
 import dasturlash.uz.entity.SectionEntity;
-import dasturlash.uz.mapper.RegionMapper;
 import dasturlash.uz.mapper.SectionMapper;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
