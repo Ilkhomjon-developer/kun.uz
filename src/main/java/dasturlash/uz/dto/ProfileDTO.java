@@ -1,5 +1,6 @@
 package dasturlash.uz.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import dasturlash.uz.enums.ProfileRole;
 import dasturlash.uz.enums.ProfileStatus;
 import jakarta.validation.constraints.NotBlank;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProfileDTO {
 
 

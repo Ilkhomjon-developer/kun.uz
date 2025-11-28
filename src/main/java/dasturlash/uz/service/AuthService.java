@@ -10,6 +10,7 @@ import dasturlash.uz.exps.AppBadException;
 import dasturlash.uz.repository.ProfileRepository;
 import dasturlash.uz.repository.ProfileRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,10 +23,17 @@ public class AuthService {
     private ProfileRepository profileRepository;
 
     @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
     private ProfileRoleRepository profileRoleRepository;
 
     @Autowired
     private ProfileRoleService profileRoleService;
+
+    @Autowired
+    private EmailSendingService emailSendingService;
+
 
     public String registration(RegistrationDTO dto){
 
@@ -50,12 +58,14 @@ public class AuthService {
         entity.setName(dto.name());
         entity.setSurname(dto.surname());
         entity.setStatus(ProfileStatus.REGISTERING);
-        entity.setPassword(dto.password());
+        entity.setPassword(bCryptPasswordEncoder.encode(dto.password()));
 
         profileRepository.save(entity);
 
         List<ProfileRole> roleList = List.of(ProfileRole.ROLE_USER);
         profileRoleService.createRole(entity.getId(), roleList);
+
+        emailSendingService.sendSimpleMessage(dto.username(), "Complete registration", "Please, confirm your registration");
 
         return "Successfully registered";
 
@@ -69,7 +79,7 @@ public class AuthService {
             throw new AppBadException("Username or password is incorrect");
         }
 
-        if(!optional.get().getPassword().equals(dto.password())){
+        if(!bCryptPasswordEncoder.matches(dto.password(), optional.get().getPassword())){
             throw new AppBadException("Username or password is incorrect");
         }
 

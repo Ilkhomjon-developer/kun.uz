@@ -1,0 +1,20 @@
+
+### Registration using Email
+POST localhost:8080/auth/registration
+Content-Type: application/json
+
+{
+  "name": "Developer",
+  "surname": "developer",
+  "username": "maxamadqulovilkhomjon@gmail.com",
+  "password": "12345"
+}
+
+### Login
+POST localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "username": "maxamadqulovilkhomjon@gmail.com",
+  "password": "12345"
+}
