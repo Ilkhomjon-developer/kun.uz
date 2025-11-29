@@ -18,3 +18,13 @@ Content-Type: application/json
   "username": "maxamadqulovilkhomjon@gmail.com",
   "password": "12345"
 }
+
+### Verification
+POST localhost:8080/auth/regVerification
+Content-Type: application/json
+
+{
+  "username": "maxamadqulovilkhomjon@gmail.com",
+  "password": "12345",
+  "code": 32012
+}
