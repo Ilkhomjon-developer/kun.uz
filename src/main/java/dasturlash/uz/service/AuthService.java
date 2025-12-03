@@ -110,8 +110,10 @@ public class AuthService {
             entity.setStatus(ProfileStatus.ACTIVE);
             profileRepository.save(entity);
 
-        } else {
+        } else if(entity.getStatus().equals(ProfileStatus.ACTIVE)){
             throw new AppBadException("Profile already active");
+        }else{
+            throw new AppBadException("Verification code is incorrect or check your phone number or email");
         }
 
         return "Account Successfully Activated";
