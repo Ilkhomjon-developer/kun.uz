@@ -8,23 +8,27 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "email_history")
+@Table(name = "sms_history")
 @Getter
 @Setter
-public class EmailHistoryEntity {
+public class SmsHistoryEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
     @Column(name = "message")
     private String message;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "phone")
+    private String phone;
 
-    @Column(name = "verification_code")
+    @Column(name = "sms_code")
     private Integer code;
+
+    @Column(name = "attempt_count")
+    private Integer attemptCount = 0;
+
 
     @Column(name = "created_date")
     @CreationTimestamp

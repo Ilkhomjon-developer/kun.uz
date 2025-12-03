@@ -90,6 +90,9 @@ POST localhost:8080/profile/pagination?page=1&size=2
 ### DELETE
 DELETE localhost:8080/profile/delete/2
 
+### Get test
+GET http://localhost:8080/
+
 ### update password
 PUT localhost:8080/profile/updatePassword/4/yyyyyyy
 

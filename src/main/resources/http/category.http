@@ -3,11 +3,11 @@ POST localhost:8080/category/create
 Content-Type: application/json
 
 {
-  "orderNumber": 1,
+  "orderNumber": 14,
   "nameUz": "jahon",
   "nameEn": "global",
   "nameRu": "мировой",
-  "categoryKey": "jahon"
+  "categoryKey": "jahon12"
 }
 
 ###

@@ -1,0 +1,25 @@
+
+### SMS Code
+
+POST https://notify.eskiz.uz/api/auth/login
+Content-Type: application/json
+
+{
+ "email" : "maxamadqulovilkhomjon@gmail.com",
+  "password" : "prWKx0yEQKEjOnis8Ploj8PsPkgxYZKdPenLDNje"
+}
+
+### test
+
+
+POST https://notify.eskiz.uz/api/message/sms/send
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjcyNzIxNjIsImlhdCI6MTc2NDY4MDE2Miwicm9sZSI6InRlc3QiLCJzaWduIjoiMjNiMzYzYjdjNWRjNTVkYzE0ZTcwOWZiNmYxNzdmMTUwZTM0OTA0NzVhYjIwMWVlYjJhN2I2MWE0N2E0MWY2OSIsInN1YiI6IjEzNDg5In0.ZsTA8xwanPjXKjQ38Oqxw28TTjOlViA9jnd5EVLAgU4
+
+{
+  "mobile_phone": "+998970073922",
+  "message": "Bu Eskiz dan test",
+  "from": 4546
+
+}
+
