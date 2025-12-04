@@ -1,9 +1,9 @@
 package dasturlash.uz.controller;
 
-import dasturlash.uz.dto.AuthDTO;
-import dasturlash.uz.dto.ProfileDTO;
-import dasturlash.uz.dto.RegistrationDTO;
-import dasturlash.uz.dto.VerificationDTO;
+import dasturlash.uz.dto.auth.AuthDTO;
+import dasturlash.uz.dto.profile.ProfileDTO;
+import dasturlash.uz.dto.auth.RegistrationDTO;
+import dasturlash.uz.dto.auth.VerificationDTO;
 import dasturlash.uz.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

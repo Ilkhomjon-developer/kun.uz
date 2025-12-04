@@ -1,4 +1,4 @@
-package dasturlash.uz.entity;
+package dasturlash.uz.entity.mail;
 
 import jakarta.persistence.*;
 import lombok.Getter;

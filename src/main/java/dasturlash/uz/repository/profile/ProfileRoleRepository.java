@@ -1,6 +1,6 @@
-package dasturlash.uz.repository;
+package dasturlash.uz.repository.profile;
 
-import dasturlash.uz.entity.ProfileRoleEntity;
+import dasturlash.uz.entity.profile.ProfileRoleEntity;
 import dasturlash.uz.enums.ProfileRole;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;

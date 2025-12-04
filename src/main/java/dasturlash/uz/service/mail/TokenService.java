@@ -1,10 +1,9 @@
-package dasturlash.uz.service;
+package dasturlash.uz.service.mail;
 
-import dasturlash.uz.dto.AuthDTO;
 import dasturlash.uz.dto.sms.SmsProviderTokenDTO;
 import dasturlash.uz.dto.sms.SmsTokenProviderResponse;
-import dasturlash.uz.entity.TokenEntity;
-import dasturlash.uz.repository.TokenRepository;
+import dasturlash.uz.entity.mail.TokenEntity;
+import dasturlash.uz.repository.mail.TokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;

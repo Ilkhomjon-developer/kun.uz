@@ -1,7 +1,7 @@
 package dasturlash.uz.controller;
 
 import dasturlash.uz.dto.sms.SmsHistoryDTO;
-import dasturlash.uz.service.SmsHistoryService;
+import dasturlash.uz.service.mail.SmsHistoryService;
 import dasturlash.uz.util.PhoneUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

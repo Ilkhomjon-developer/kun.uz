@@ -1,7 +1,7 @@
 package dasturlash.uz.controller;
 
-import dasturlash.uz.dto.ProfileDTO;
-import dasturlash.uz.service.ProfileService;
+import dasturlash.uz.dto.profile.ProfileDTO;
+import dasturlash.uz.service.profile.ProfileService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;

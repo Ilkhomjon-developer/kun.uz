@@ -1,16 +1,17 @@
 package dasturlash.uz.service;
 
-import dasturlash.uz.dto.AuthDTO;
-import dasturlash.uz.dto.ProfileDTO;
-import dasturlash.uz.dto.RegistrationDTO;
-import dasturlash.uz.dto.VerificationDTO;
-import dasturlash.uz.entity.ProfileEntity;
+import dasturlash.uz.dto.auth.AuthDTO;
+import dasturlash.uz.dto.profile.ProfileDTO;
+import dasturlash.uz.dto.auth.RegistrationDTO;
+import dasturlash.uz.dto.auth.VerificationDTO;
+import dasturlash.uz.entity.profile.ProfileEntity;
 import dasturlash.uz.enums.ProfileRole;
 import dasturlash.uz.enums.ProfileStatus;
 import dasturlash.uz.exps.AppBadException;
-import dasturlash.uz.repository.EmailHistoryRepository;
-import dasturlash.uz.repository.ProfileRepository;
-import dasturlash.uz.repository.ProfileRoleRepository;
+import dasturlash.uz.repository.profile.ProfileRepository;
+import dasturlash.uz.repository.profile.ProfileRoleRepository;
+import dasturlash.uz.service.mail.*;
+import dasturlash.uz.service.profile.ProfileRoleService;
 import dasturlash.uz.util.UsernameValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

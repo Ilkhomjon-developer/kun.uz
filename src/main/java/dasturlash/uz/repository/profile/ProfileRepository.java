@@ -1,6 +1,6 @@
-package dasturlash.uz.repository;
+package dasturlash.uz.repository.profile;
 
-import dasturlash.uz.entity.ProfileEntity;
+import dasturlash.uz.entity.profile.ProfileEntity;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

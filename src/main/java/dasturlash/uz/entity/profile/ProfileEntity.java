@@ -1,4 +1,4 @@
-package dasturlash.uz.entity;
+package dasturlash.uz.entity.profile;
 
 import dasturlash.uz.enums.ProfileStatus;
 import jakarta.persistence.*;

@@ -1,10 +1,10 @@
-package dasturlash.uz.service;
+package dasturlash.uz.service.mail;
 
 import dasturlash.uz.dto.sms.SmsHistoryDTO;
-import dasturlash.uz.entity.SmsHistoryEntity;
+import dasturlash.uz.entity.mail.SmsHistoryEntity;
 import dasturlash.uz.exps.AppBadException;
-import dasturlash.uz.repository.SmsHistoryRepository;
-import dasturlash.uz.repository.TokenRepository;
+import dasturlash.uz.repository.mail.SmsHistoryRepository;
+import dasturlash.uz.repository.mail.TokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;

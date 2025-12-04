@@ -1,4 +1,4 @@
-package dasturlash.uz.dto;
+package dasturlash.uz.dto.auth;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotNull;

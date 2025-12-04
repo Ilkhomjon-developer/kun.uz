@@ -1,10 +1,10 @@
-package dasturlash.uz.service;
+package dasturlash.uz.service.profile;
 
-import dasturlash.uz.dto.ProfileDTO;
-import dasturlash.uz.entity.ProfileEntity;
+import dasturlash.uz.dto.profile.ProfileDTO;
+import dasturlash.uz.entity.profile.ProfileEntity;
 import dasturlash.uz.exps.AppBadException;
-import dasturlash.uz.repository.ProfileRepository;
-import dasturlash.uz.repository.ProfileRoleRepository;
+import dasturlash.uz.repository.profile.ProfileRepository;
+import dasturlash.uz.repository.profile.ProfileRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;

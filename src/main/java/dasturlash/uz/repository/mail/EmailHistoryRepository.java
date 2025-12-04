@@ -1,6 +1,6 @@
-package dasturlash.uz.repository;
+package dasturlash.uz.repository.mail;
 
-import dasturlash.uz.entity.EmailHistoryEntity;
+import dasturlash.uz.entity.mail.EmailHistoryEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

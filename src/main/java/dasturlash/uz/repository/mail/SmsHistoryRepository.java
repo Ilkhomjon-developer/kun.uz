@@ -1,6 +1,6 @@
-package dasturlash.uz.repository;
+package dasturlash.uz.repository.mail;
 
-import dasturlash.uz.entity.SmsHistoryEntity;
+import dasturlash.uz.entity.mail.SmsHistoryEntity;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

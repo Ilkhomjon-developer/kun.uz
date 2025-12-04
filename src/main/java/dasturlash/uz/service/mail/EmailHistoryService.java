@@ -1,8 +1,8 @@
-package dasturlash.uz.service;
+package dasturlash.uz.service.mail;
 
-import dasturlash.uz.entity.EmailHistoryEntity;
+import dasturlash.uz.entity.mail.EmailHistoryEntity;
 import dasturlash.uz.exps.AppBadException;
-import dasturlash.uz.repository.EmailHistoryRepository;
+import dasturlash.uz.repository.mail.EmailHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

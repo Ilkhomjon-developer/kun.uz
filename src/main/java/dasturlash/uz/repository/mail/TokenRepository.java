@@ -1,7 +1,6 @@
-package dasturlash.uz.repository;
+package dasturlash.uz.repository.mail;
 
-import dasturlash.uz.entity.TokenEntity;
-import org.springframework.data.jpa.repository.Query;
+import dasturlash.uz.entity.mail.TokenEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

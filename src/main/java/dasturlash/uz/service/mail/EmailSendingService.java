@@ -1,4 +1,4 @@
-package dasturlash.uz.service;
+package dasturlash.uz.service.mail;
 
 import dasturlash.uz.util.RandomNumberGenerator;
 import jakarta.mail.MessagingException;
