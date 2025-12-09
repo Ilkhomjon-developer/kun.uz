@@ -7,6 +7,7 @@ import dasturlash.uz.repository.profile.ProfileRepository;
 import dasturlash.uz.repository.profile.ProfileRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -25,6 +26,7 @@ public class ProfileService {
 
     @Autowired
     private ProfileRoleRepository profileRoleRepository;
+
 
     public ProfileDTO create(ProfileDTO dto) {
 

@@ -14,8 +14,6 @@ import java.time.LocalDateTime;
 @Setter
 public class ProfileEntity {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

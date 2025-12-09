@@ -4,8 +4,10 @@ import dasturlash.uz.dto.AttachDTO;
 import dasturlash.uz.entity.AttachEntity;
 import dasturlash.uz.repository.AttachRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -29,26 +31,28 @@ public class AttachService {
     @Autowired
     private AttachRepository attachRepository;
 
-    public AttachDTO uploadFile(MultipartFile file){
+    @Value("${attach.dir}")
+    private String attachDir;
+
+    public AttachDTO uploadFile(MultipartFile file) {
 
         try {
 
-            String pathFolder =getYmDString();
+            String pathFolder = getYmDString();
             String key = UUID.randomUUID().toString();
             String extension = Objects.requireNonNull(file.getOriginalFilename())
                     .substring(file.getOriginalFilename().lastIndexOf(".") + 1);
 
+            File folder = new File(attachDir + pathFolder);
 
-            File folder = new File("attaches" + "/" + pathFolder);
-
-            if(!folder.exists()){
+            if (!folder.exists()) {
 
                 boolean mkdirs = folder.mkdirs();
             }
 
             byte[] bytes = file.getBytes();
 
-            Path path = Paths.get("attaches" + "/" + pathFolder + "/" + key + "." + extension);
+            Path path = Paths.get(attachDir + pathFolder + "/" + key + "." + extension);
 
             Files.write(path, bytes);
 
@@ -73,18 +77,39 @@ public class AttachService {
 
     }
 
-    public ResponseEntity<Resource> open(String id){
+    public ResponseEntity<Resource> download(String id) {
+        try {
+            AttachEntity entity = getEntity(id);
+            Path filePath = Paths.get(attachDir + entity.getPath() + "/" + id).normalize();
+            Resource resource = new UrlResource(filePath.toUri());
+
+            if (resource.exists() || resource.isReadable()) {
+                return ResponseEntity.ok()
+                        .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + entity.getOriginalName() + "\"")
+                        .body(resource);
+            } else {
+                throw new RuntimeException("File not found");
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Could not read file");
+        }
+    }
+
+    public ResponseEntity<Resource> open(String id) {
 
         AttachEntity entity = getEntity(id);
 
-        Path filePath = Paths.get("attaches/" + entity.getPath() + "/" + id).normalize();
-        org.springframework.core.io.Resource resource = null;
+        Path filePath = Paths.get(attachDir + entity.getPath() + "/" + id).normalize();
+        Resource resource = null;
 
         try {
 
             resource = new UrlResource(filePath.toUri());
 
-            if(!resource.exists()){
+            if (!resource.exists()) {
 
                 throw new RuntimeException("File not found");
             }
@@ -110,15 +135,13 @@ public class AttachService {
         return year + "/" + month + "/" + day;
     }
 
-    private AttachEntity getEntity(String id){
+    private AttachEntity getEntity(String id) {
 
+        Optional<AttachEntity> optional = attachRepository.findById(id);
 
-       Optional<AttachEntity> optional = attachRepository.findById(id);
-
-       if(optional.isEmpty()){
-           throw new RuntimeException("File not found");
-       }
-
-       return optional.get();
+        if (optional.isEmpty()) {
+            throw new RuntimeException("File not found");
+        }
+        return optional.get();
     }
 }

@@ -1,3 +1,6 @@
 
 ### GET
 GET http://localhost:8080/attach/open/c97ca69c-21fa-4d97-9b85-cc1097c3d558.jpg
+
+### DOWNLOAD TEST
+GET http://localhost:8080/attach/download/19079cda-61f4-47fe-ab9d-b51cea697b63.jpg

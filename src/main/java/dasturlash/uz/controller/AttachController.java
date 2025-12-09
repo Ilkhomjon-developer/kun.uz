@@ -26,4 +26,9 @@ public class AttachController {
         return attachService.open(id);
     }
 
+    @GetMapping("/download/{id}")
+    public ResponseEntity<Resource> download(@PathVariable("id") String id){
+        return attachService.download(id);
+    }
+
 }
