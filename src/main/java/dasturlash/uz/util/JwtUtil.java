@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class JwtUtil {
 
     private static final int tokenLifeTime = 3600 * 1000 * 24;
-    private static final String secretKey = "itIsJustTestExampleJwt";
+    private static final String secretKey = "itIsJustTestExampleJwLLLLLLLLLLLLLLLLLLLLLLLJJJJJJJJJJJJHHHHHHHHHHHHHHHHHHHHHHHt";
 
     public static String encode(String username, List<ProfileRole> role){
 
