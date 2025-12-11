@@ -12,6 +12,7 @@ import dasturlash.uz.repository.profile.ProfileRepository;
 import dasturlash.uz.repository.profile.ProfileRoleRepository;
 import dasturlash.uz.service.mail.*;
 import dasturlash.uz.service.profile.ProfileRoleService;
+import dasturlash.uz.util.JwtUtil;
 import dasturlash.uz.util.UsernameValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -142,6 +143,7 @@ public class AuthService {
         response.setId(optional.get().getId());
         response.setUsername(optional.get().getUsername());
         response.setName(optional.get().getName());
+        response.setJwt(JwtUtil.encode(dto.username(),profileRoleRepository.getAllRolesListByProfileId(optional.get().getId())));
         response.setSurname(optional.get().getSurname());
         response.setRoleList(profileRoleRepository.getAllRolesListByProfileId(optional.get().getId()));
         response.setStatus(optional.get().getStatus());

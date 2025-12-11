@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class EmailSendingService {
@@ -79,7 +82,8 @@ public class EmailSendingService {
     }
 
 
-    private String sendMimeMessage(String subject, String body, String toAccount) {
+    @Async("emailExecutor")
+    protected String sendMimeMessage(String subject, String body, String toAccount) {
         try {
             MimeMessage msg = javaMailSender.createMimeMessage();
             msg.setFrom(fromAccount);
@@ -88,7 +92,8 @@ public class EmailSendingService {
             helper.setTo(toAccount);
             helper.setSubject(subject);
             helper.setText(body, true);
-            javaMailSender.send(msg);
+
+            CompletableFuture.runAsync(() -> javaMailSender.send(msg)) ;
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
