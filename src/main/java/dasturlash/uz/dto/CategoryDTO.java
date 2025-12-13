@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class CategoryDTO {
 
 
-    private Integer id;
+    private Long id;
 
     @Positive(message = "Order number must be positive")
     private Integer orderNumber;

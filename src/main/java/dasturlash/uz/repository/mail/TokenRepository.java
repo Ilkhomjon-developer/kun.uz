@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface TokenRepository extends CrudRepository<TokenEntity, Integer> {
+public interface TokenRepository extends CrudRepository<TokenEntity, Long> {
 
-    Optional<TokenEntity> findTopByOrderByCreateDateDesc();
+    Optional<TokenEntity> findTopByOrderByCreatedDateDesc();
 }

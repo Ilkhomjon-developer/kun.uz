@@ -1,23 +1,16 @@
 package dasturlash.uz.entity.article;
 
+import dasturlash.uz.base.BaseLongEntity;
 import dasturlash.uz.entity.profile.ProfileEntity;
-import dasturlash.uz.entity.profile.ProfileRoleEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "article_like")
 @Getter
 @Setter
-public class ArticleLike {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class ArticleLike extends BaseLongEntity {
 
     @Column(name = "profile_id")
     private Integer profileId;
@@ -33,8 +26,4 @@ public class ArticleLike {
     @JoinColumn(name = "article", updatable = false, insertable = false)
     private ArticleEntity article;
 
-
-    @Column(name = "created_date")
-    @CreationTimestamp
-    private LocalDateTime createdDate;
 }

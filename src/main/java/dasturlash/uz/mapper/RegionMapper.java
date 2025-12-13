@@ -2,7 +2,7 @@ package dasturlash.uz.mapper;
 
 public interface RegionMapper {
 
-    Integer getId();
+    Long getId();
     String getName();
     Integer getOrderNumber();
     String getRegionKey();

@@ -12,17 +12,17 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface RegionRepository extends CrudRepository<RegionEntity, Integer> {
+public interface RegionRepository extends CrudRepository<RegionEntity, Long> {
 
 
     Optional<RegionEntity> findByRegionKey(String regionKey);
 
-    Optional<RegionEntity> findByIdAndVisibleIsTrue(Integer id);
+    Optional<RegionEntity> findByIdAndVisibleIsTrue(Long id);
 
     @Modifying
     @Transactional
     @Query("update RegionEntity set visible = ?2 where id = ?1 ")
-    int updateVisibleById(Integer id, Boolean visible);
+    int updateVisibleById(Long id, Boolean visible);
 
     Iterable<RegionEntity> findAllByVisibleIsTrue();
 

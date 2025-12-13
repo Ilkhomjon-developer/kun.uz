@@ -1,21 +1,15 @@
 package dasturlash.uz.entity;
 
+import dasturlash.uz.base.BaseLongEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "section")
 @Getter
 @Setter
-public class SectionEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class SectionEntity extends BaseLongEntity {
 
     @Column(name = "order_number")
     private Integer orderNumber;
@@ -35,7 +29,4 @@ public class SectionEntity {
     @Column(name = "visible")
     private Boolean visible = Boolean.TRUE;
 
-    @Column(name = "created_date")
-    @CreationTimestamp
-    private LocalDateTime createdDate;
 }

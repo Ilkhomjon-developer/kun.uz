@@ -27,13 +27,13 @@ public class SectionController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update/{id}")
-    public ResponseEntity<SectionDTO> update(@PathVariable("id") Integer id,@Valid @RequestBody SectionDTO dto){
+    public ResponseEntity<SectionDTO> update(@PathVariable("id") Long id,@Valid @RequestBody SectionDTO dto){
         return ResponseEntity.ok(sectionService.update(id, dto));
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable("id") Integer id){
+    public ResponseEntity<Boolean> delete(@PathVariable("id") Long id){
         return ResponseEntity.ok(sectionService.delete(id));
     }
 

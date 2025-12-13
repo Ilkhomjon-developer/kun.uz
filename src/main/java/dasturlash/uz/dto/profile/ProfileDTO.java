@@ -16,7 +16,7 @@ import java.util.List;
 public class ProfileDTO {
 
 
-    private Integer id;
+    private Long id;
 
     @NotBlank(message = "name cannot be null")
     private String name;

@@ -9,19 +9,21 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CategoryRepository extends CrudRepository<CategoryEntity,Integer>{
+public interface CategoryRepository extends CrudRepository<CategoryEntity,Long>{
 
-    Optional<CategoryEntity> findByIdAndVisibleIsTrue(Integer id);
+    Optional<CategoryEntity> findByIdAndVisibleIsTrue(Long id);
 
     Optional<CategoryEntity> findByCategoryKey(String categoryKey);
 
     @Modifying
     @Transactional
     @Query("update CategoryEntity set visible = ?2 where id = ?1 ")
-    int updateVisibleById(Integer id, boolean visible);
+    int updateVisibleById(Long id, boolean visible);
 
     @Query("from CategoryEntity  where visible = true order by orderNumber")
     Iterable<CategoryEntity> getAllByVisibleIsTrue();
@@ -39,5 +41,6 @@ public interface CategoryRepository extends CrudRepository<CategoryEntity,Intege
             "WHERE c.visible = true order by orderNumber asc")
     Iterable<CategoryMapper> findAllByLanguageAndVisibleIsTrue(@Param("lang") String lang);
 
+    List<CategoryEntity> findByIdIn(Collection<Long> id);
 
 }

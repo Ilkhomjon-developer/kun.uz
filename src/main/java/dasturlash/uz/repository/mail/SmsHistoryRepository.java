@@ -22,7 +22,7 @@ public interface SmsHistoryRepository extends CrudRepository<SmsHistoryEntity,St
     @Transactional
     @Modifying
     @Query("update SmsHistoryEntity set attemptCount = attemptCount + 1 where id = ?1")
-    void increaseAttempt(String id);
+    void increaseAttempt(Long id);
 
     List<SmsHistoryEntity> findByCreatedDateBetween(LocalDateTime startOfDay, LocalDateTime endOfDay);
 

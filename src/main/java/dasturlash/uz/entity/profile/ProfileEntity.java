@@ -1,22 +1,16 @@
 package dasturlash.uz.entity.profile;
 
+import dasturlash.uz.base.BaseLongEntity;
 import dasturlash.uz.enums.ProfileStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "profile")
 @Getter
 @Setter
-public class ProfileEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class ProfileEntity extends BaseLongEntity {
 
     @Column(name = "name")
     private String name;
@@ -41,8 +35,5 @@ public class ProfileEntity {
     private Boolean visible = Boolean.TRUE;
 
 
-    @Column(name = "created_date")
-    @CreationTimestamp
-    private LocalDateTime createdDate;
 
 }

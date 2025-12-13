@@ -25,12 +25,12 @@ public class ProfileController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update/{id}")
-    public ResponseEntity<ProfileDTO> update(@PathVariable("id") Integer id,@Valid @RequestBody ProfileDTO dto){
+    public ResponseEntity<ProfileDTO> update(@PathVariable("id") Long id,@Valid @RequestBody ProfileDTO dto){
         return ResponseEntity.ok(profileService.update(id, dto));
     }
 
     @PutMapping("/updateAny/{id}")
-    public ResponseEntity<ProfileDTO> updateAny(@PathVariable("id") Integer id, @Valid @RequestBody ProfileDTO dto){
+    public ResponseEntity<ProfileDTO> updateAny(@PathVariable("id") Long id, @Valid @RequestBody ProfileDTO dto){
         return ResponseEntity.ok(profileService.updateAny(id, dto));
     }
 
@@ -43,12 +43,12 @@ public class ProfileController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable("id") Integer id){
+    public ResponseEntity<Boolean> delete(@PathVariable("id") Long id){
         return ResponseEntity.ok(profileService.delete(id));
     }
 
     @PutMapping("/updatePassword/{id}/{password}")
-    public ResponseEntity<Boolean> updatePassword(@PathVariable("id") Integer id, @PathVariable("password") String password){
+    public ResponseEntity<Boolean> updatePassword(@PathVariable("id") Long id, @PathVariable("password") String password){
         return ResponseEntity.ok(profileService.updatePassword(id, password));
     }
 

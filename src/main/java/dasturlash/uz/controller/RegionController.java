@@ -26,14 +26,14 @@ public class RegionController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update/{id}")
-    public ResponseEntity<RegionDTO> update(@PathVariable("id") Integer id,
+    public ResponseEntity<RegionDTO> update(@PathVariable("id") Long id,
                                             @Valid @RequestBody RegionDTO newDto) {
         return ResponseEntity.ok(regionService.update(id, newDto));
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable Integer id) {
+    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         return ResponseEntity.ok(regionService.delete(id));
     }
 

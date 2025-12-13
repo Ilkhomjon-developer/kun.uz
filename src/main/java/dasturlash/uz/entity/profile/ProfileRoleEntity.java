@@ -1,27 +1,19 @@
 package dasturlash.uz.entity.profile;
 
+import dasturlash.uz.base.BaseLongEntity;
 import dasturlash.uz.enums.ProfileRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "profile_role")
 @Getter
 @Setter
-public class ProfileRoleEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+public class ProfileRoleEntity extends BaseLongEntity{
 
     @Column(name = "profile_id")
-    private Integer profileId;
-
+    private Long profileId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id", insertable = false, updatable = false)
@@ -31,7 +23,4 @@ public class ProfileRoleEntity {
     @Column(name = "roles")
     private ProfileRole roles;
 
-    @Column(name = "created_date")
-    @CreationTimestamp
-    private LocalDateTime createdDate;
 }

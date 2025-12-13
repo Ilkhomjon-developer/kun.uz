@@ -14,7 +14,7 @@ import dasturlash.uz.service.mail.*;
 import dasturlash.uz.service.profile.ProfileRoleService;
 import dasturlash.uz.util.JwtUtil;
 import dasturlash.uz.util.UsernameValidation;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,31 +22,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AuthService {
-
-    @Autowired
-    private ProfileRepository profileRepository;
-
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Autowired
-    private ProfileRoleRepository profileRoleRepository;
-
-    @Autowired
-    private ProfileRoleService profileRoleService;
-
-    @Autowired
-    private EmailSendingService emailSendingService;
-
-    @Autowired
-    private SmsSenderService smsSenderService;
-
-    @Autowired
-    private EmailHistoryService emailHistoryService;
-
-    @Autowired
-    private SmsHistoryService smsHistoryService;
+    private final ProfileRepository profileRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final ProfileRoleRepository profileRoleRepository;
+    private final ProfileRoleService profileRoleService;
+    private final EmailSendingService emailSendingService;
+    private final SmsSenderService smsSenderService;
+    private final EmailHistoryService emailHistoryService;
+    private final SmsHistoryService smsHistoryService;
 
 
     public String registration(RegistrationDTO dto){

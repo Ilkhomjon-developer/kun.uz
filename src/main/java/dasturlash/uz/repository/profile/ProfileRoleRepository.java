@@ -11,12 +11,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProfileRoleRepository extends CrudRepository<ProfileRoleEntity,Integer> {
+public interface ProfileRoleRepository extends CrudRepository<ProfileRoleEntity,Long> {
 
     @Query("select p.roles from ProfileRoleEntity p where p.profileId = ?1")
-    List<ProfileRole> getAllRolesListByProfileId(Integer profileId);
+    List<ProfileRole> getAllRolesListByProfileId(Long profileId);
 
     @Modifying
     @Transactional
-    void deleteByProfileId(Integer profileId);
+    void deleteByProfileId(Long profileId);
 }

@@ -1,21 +1,15 @@
 package dasturlash.uz.entity.mail;
 
+import dasturlash.uz.base.BaseLongEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sms_history")
 @Getter
 @Setter
-public class SmsHistoryEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+public class SmsHistoryEntity extends BaseLongEntity {
 
     @Column(name = "message")
     private String message;
@@ -28,10 +22,5 @@ public class SmsHistoryEntity {
 
     @Column(name = "attempt_count")
     private Integer attemptCount = 0;
-
-
-    @Column(name = "created_date")
-    @CreationTimestamp
-    private LocalDateTime createdDate;
 
 }

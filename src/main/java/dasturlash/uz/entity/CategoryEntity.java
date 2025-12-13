@@ -1,23 +1,18 @@
 package dasturlash.uz.entity;
 
-
+import dasturlash.uz.base.BaseLongEntity;
+import dasturlash.uz.entity.article.ArticleEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "category")
 @Getter
 @Setter
-public class CategoryEntity {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class CategoryEntity extends BaseLongEntity {
 
     @Column(name = "order_number")
     private Integer orderNumber;
@@ -37,9 +32,8 @@ public class CategoryEntity {
     @Column(name = "visible")
     private Boolean visible = Boolean.TRUE;
 
-    @Column(name = "created_date")
-    @CreationTimestamp
-    private LocalDateTime createdDate;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Set<ArticleEntity> articles;
 
 }

@@ -4,7 +4,7 @@ import dasturlash.uz.entity.profile.ProfileEntity;
 import dasturlash.uz.enums.ProfileRole;
 import dasturlash.uz.repository.profile.ProfileRepository;
 import dasturlash.uz.repository.profile.ProfileRoleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,13 +14,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
-
-    @Autowired
-    private ProfileRepository profileRepository;
-
-    @Autowired
-    private ProfileRoleRepository profileRoleRepository;
+    private final ProfileRepository profileRepository;
+    private final ProfileRoleRepository profileRoleRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

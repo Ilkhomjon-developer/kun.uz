@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Repository
-public interface EmailHistoryRepository extends CrudRepository<EmailHistoryEntity,Integer> {
+public interface EmailHistoryRepository extends CrudRepository<EmailHistoryEntity,Long> {
 
     @Query(" from EmailHistoryEntity  where email = ?1 order by createdDate desc limit 1")
     Optional<EmailHistoryEntity> findByUsername(@RequestParam String email);

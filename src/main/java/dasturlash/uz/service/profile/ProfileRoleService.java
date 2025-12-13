@@ -16,7 +16,7 @@ public class ProfileRoleService {
     @Autowired
     private ProfileRoleRepository profileRoleRepository;
 
-    public void createRole(Integer profileId, List<ProfileRole> roleList){
+    public void createRole(Long profileId, List<ProfileRole> roleList){
 
         if(roleList.isEmpty()){
 
@@ -34,7 +34,7 @@ public class ProfileRoleService {
 
     }
 
-    public void updateRole(Integer profileId, ProfileDTO dto){
+    public void updateRole(Long profileId, ProfileDTO dto){
 
         if(dto.getRoleList().isEmpty()){
             throw new AppBadException("Role list is empty");

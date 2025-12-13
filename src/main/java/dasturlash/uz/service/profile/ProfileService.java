@@ -7,7 +7,6 @@ import dasturlash.uz.repository.profile.ProfileRepository;
 import dasturlash.uz.repository.profile.ProfileRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -56,7 +55,7 @@ public class ProfileService {
         return dto;
     }
 
-    public ProfileDTO update(Integer id, ProfileDTO dto) {
+    public ProfileDTO update(Long id, ProfileDTO dto) {
         Optional<ProfileEntity> optional = profileRepository
                 .findByIdAndVisibleIsTrue(id);
         if(optional.isEmpty()){
@@ -77,7 +76,7 @@ public class ProfileService {
         return dto;
     }
 
-    public ProfileDTO updateAny(Integer id, ProfileDTO dto) {
+    public ProfileDTO updateAny(Long id, ProfileDTO dto) {
         Optional<ProfileEntity> optional = profileRepository
                 .findByIdAndVisibleIsTrue(id);
 
@@ -125,12 +124,12 @@ public class ProfileService {
 
     }
 
-    public Boolean delete(Integer id) {
+    public Boolean delete(Long id) {
 
         return profileRepository.updateVisibleById(id, false) == 1;
     }
 
-    public Boolean updatePassword(Integer id, String newPassword) {
+    public Boolean updatePassword(Long id, String newPassword) {
 
         Optional<ProfileEntity> optional = profileRepository
                 .findByIdAndVisibleIsTrue(id);

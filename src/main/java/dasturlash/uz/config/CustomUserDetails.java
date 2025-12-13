@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
 
-    private Integer id;
+    private Long id;
     private String username;
     private String password;
     private Collection<? extends GrantedAuthority> role;

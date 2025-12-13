@@ -1,23 +1,20 @@
 package dasturlash.uz.entity.article;
 
+import dasturlash.uz.base.BaseLongEntity;
+import dasturlash.uz.entity.CategoryEntity;
 import dasturlash.uz.enums.ArticleStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "article")
 @Getter
 @Setter
-public class ArticleEntity {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+public class ArticleEntity extends BaseLongEntity {
 
     @Column(name = "title")
     private String title;
@@ -44,6 +41,10 @@ public class ArticleEntity {
     private Integer publisherId;
 
 
+    @OneToMany(mappedBy = "articles", fetch = FetchType.LAZY)
+    private List<CategoryEntity> categories;
+
+
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private ArticleStatus status;
@@ -61,9 +62,5 @@ public class ArticleEntity {
     @Column(name = "published_date")
     private LocalDateTime publishedDate;
 
-
-    @Column(name = "created_date")
-    @CreationTimestamp
-    private LocalDateTime createdDate;
 
 }

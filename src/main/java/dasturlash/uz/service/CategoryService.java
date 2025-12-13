@@ -6,7 +6,7 @@ import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.exps.AppBadException;
 import dasturlash.uz.mapper.CategoryMapper;
 import dasturlash.uz.repository.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CategoryService {
+    private final CategoryRepository categoryRepository;
 
-    @Autowired
-    private CategoryRepository categoryRepository;
 
     public CategoryDTO create(CategoryDTO dto){
 
@@ -43,7 +43,7 @@ public class CategoryService {
         return dto;
     }
 
-    public CategoryDTO update(Integer id, CategoryDTO dto){
+    public CategoryDTO update(Long id, CategoryDTO dto){
         Optional<CategoryEntity> optional = categoryRepository.findByIdAndVisibleIsTrue(id);
         if(optional.isEmpty()){
             throw new AppBadException("Category not found");
@@ -70,7 +70,7 @@ public class CategoryService {
 
     }
 
-    public Boolean delete(Integer id){
+    public Boolean delete(Long id){
 
       return categoryRepository.updateVisibleById(id, false) == 1;
     }
@@ -130,5 +130,10 @@ public class CategoryService {
             case EN ->dto.setName(entity.getNameEn());
         }
         return dto;
+    }
+
+
+    public List<CategoryEntity> getCategoryList(List<Long> categoryIdList){
+        return categoryRepository.findByIdIn(categoryIdList);
     }
 }

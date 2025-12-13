@@ -8,8 +8,6 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-import java.security.Key;
 import java.util.*;
 import java.util.stream.Collectors;
 

@@ -6,7 +6,7 @@ import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.exps.AppBadException;
 import dasturlash.uz.mapper.SectionMapper;
 import dasturlash.uz.repository.SectionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -18,10 +18,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class SectionService {
 
-    @Autowired
-    private SectionRepository sectionRepository;
+    private final SectionRepository sectionRepository;
+
 
     public SectionDTO create(SectionDTO dto){
 
@@ -42,11 +43,10 @@ public class SectionService {
        sectionRepository.save(entity);
 
         dto.setId(entity.getId());
-        dto.setCreatedDate(entity.getCreatedDate());
         return dto;
     }
 
-    public SectionDTO update(Integer id, SectionDTO dto){
+    public SectionDTO update(Long id, SectionDTO dto){
 
         Optional<SectionEntity> optional = sectionRepository.findByIdAndVisibleTrue(id);
 
@@ -72,7 +72,7 @@ public class SectionService {
         return dto;
     }
 
-    public Boolean delete(Integer id){
+    public Boolean delete(Long id){
        return sectionRepository.updateVisibleById(id, false) == 1;
     }
 
@@ -96,7 +96,6 @@ public class SectionService {
             dto.setNameEn(entity.getNameEn());
             dto.setNameRu(entity.getNameRu());
             dto.setSectionKey(entity.getSectionKey());
-            dto.setCreatedDate(entity.getCreatedDate());
             dtoList.add(dto);
 
         }

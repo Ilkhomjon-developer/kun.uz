@@ -4,7 +4,7 @@ import dasturlash.uz.dto.sms.SmsProviderTokenDTO;
 import dasturlash.uz.dto.sms.SmsTokenProviderResponse;
 import dasturlash.uz.entity.mail.TokenEntity;
 import dasturlash.uz.repository.mail.TokenRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.RequestEntity;
@@ -16,13 +16,11 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class TokenService {
 
-    @Autowired
-    private TokenRepository tokenRepository;
-
-    @Autowired
-    private RestTemplate restTemplate;
+    private final TokenRepository tokenRepository;
+    private final RestTemplate restTemplate;
 
     @Value("${sms.eskiz.email}")
     private String email;
@@ -35,13 +33,13 @@ public class TokenService {
 
     public String getToken(){
 
-        Optional<TokenEntity> optional = tokenRepository.findTopByOrderByCreateDateDesc();
+        Optional<TokenEntity> optional = tokenRepository.findTopByOrderByCreatedDateDesc();
 
         if(optional.isPresent()){
 
             TokenEntity tokenEntity = optional.get();
 
-            LocalDateTime tokenCreatedDate = tokenEntity.getCreateDate();
+            LocalDateTime tokenCreatedDate = tokenEntity.getCreatedDate();
             LocalDateTime now = LocalDateTime.now();
 
             long days = Duration.between(tokenCreatedDate, now).toDaysPart();

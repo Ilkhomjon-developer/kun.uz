@@ -14,15 +14,15 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ProfileRepository extends CrudRepository<ProfileEntity,Integer>, PagingAndSortingRepository<ProfileEntity,Integer> {
+public interface ProfileRepository extends CrudRepository<ProfileEntity,Long>, PagingAndSortingRepository<ProfileEntity,Long> {
 
 
-    Optional<ProfileEntity> findByIdAndVisibleIsTrue( Integer id);
+    Optional<ProfileEntity> findByIdAndVisibleIsTrue( Long id);
 
     @Modifying
     @Transactional
     @Query("update ProfileEntity set visible = ?2 where id = ?1 ")
-    int updateVisibleById(Integer id, Boolean visible);
+    int updateVisibleById(Long id, Boolean visible);
 
     Optional<ProfileEntity> findByUsernameAndVisibleIsTrue(String username);
 

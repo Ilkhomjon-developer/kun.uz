@@ -1,5 +1,6 @@
 package dasturlash.uz.entity.article;
 
+import dasturlash.uz.base.BaseLongEntity;
 import dasturlash.uz.entity.SectionEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,11 +10,7 @@ import lombok.Setter;
 @Table(name = "article_section")
 @Getter
 @Setter
-public class ArticleSection {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class ArticleSection extends BaseLongEntity {
 
     @Column(name = "article_id")
     private Integer articleId;

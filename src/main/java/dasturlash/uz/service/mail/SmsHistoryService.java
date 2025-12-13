@@ -5,7 +5,7 @@ import dasturlash.uz.entity.mail.SmsHistoryEntity;
 import dasturlash.uz.exps.AppBadException;
 import dasturlash.uz.repository.mail.SmsHistoryRepository;
 import dasturlash.uz.repository.mail.TokenRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
@@ -18,13 +18,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class SmsHistoryService {
 
-    @Autowired
-    private TokenRepository tokenRepository;
-
-    @Autowired
-    private SmsHistoryRepository smsHistoryRepository;
+    private final TokenRepository tokenRepository;
+    private final SmsHistoryRepository smsHistoryRepository;
 
 
 
@@ -54,7 +52,7 @@ public class SmsHistoryService {
         return true;
     }
 
-    public void increaseAttempt(String id){
+    public void increaseAttempt(Long id){
 
         smsHistoryRepository.increaseAttempt(id);
 
@@ -104,7 +102,7 @@ public class SmsHistoryService {
             return null;
         }
         SmsHistoryDTO dto = new SmsHistoryDTO();
-        dto.setId(entity.getId());
+        dto.setId(String.valueOf(entity.getId()));
         dto.setPhoneNumber(entity.getPhone());
         dto.setBody(entity.getMessage());
         dto.setCreatedDate(entity.getCreatedDate());

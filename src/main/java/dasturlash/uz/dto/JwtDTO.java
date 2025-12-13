@@ -3,7 +3,6 @@ package dasturlash.uz.dto;
 import dasturlash.uz.enums.ProfileRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 

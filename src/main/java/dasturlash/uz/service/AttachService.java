@@ -3,7 +3,7 @@ package dasturlash.uz.service;
 import dasturlash.uz.dto.AttachDTO;
 import dasturlash.uz.entity.AttachEntity;
 import dasturlash.uz.repository.AttachRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -26,10 +26,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class AttachService {
-
-    @Autowired
-    private AttachRepository attachRepository;
+    private final AttachRepository attachRepository;
 
     @Value("${attach.dir}")
     private String attachDir;

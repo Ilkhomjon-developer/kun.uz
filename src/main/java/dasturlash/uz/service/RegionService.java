@@ -6,7 +6,7 @@ import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.exps.AppBadException;
 import dasturlash.uz.mapper.RegionMapper;
 import dasturlash.uz.repository.RegionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class RegionService {
 
-    @Autowired
-    private RegionRepository regionRepository;
+    private final RegionRepository regionRepository;
 
     public RegionDTO create(RegionDTO dto) {
 
@@ -39,7 +39,7 @@ public class RegionService {
         return dto;
     }
 
-    public RegionDTO update(Integer id, RegionDTO newDto) {// Jahon
+    public RegionDTO update(Long id, RegionDTO newDto) {// Jahon
         Optional<RegionEntity> optional = regionRepository.findByIdAndVisibleIsTrue(id);
         if (optional.isEmpty()) {
             throw new AppBadException("Region not found");
@@ -60,7 +60,7 @@ public class RegionService {
         return newDto;
     }
 
-    public Boolean delete(Integer id) {
+    public Boolean delete(Long id) {
 //        RegionEntity entity = get(id);
 //        entity.setVisible(false);
 //        regionRepository.save(entity);

@@ -15,16 +15,16 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface SectionRepository extends CrudRepository<SectionEntity,Integer>, PagingAndSortingRepository<SectionEntity,Integer> {
+public interface SectionRepository extends CrudRepository<SectionEntity,Long>, PagingAndSortingRepository<SectionEntity,Long> {
 
-    Optional<SectionEntity> findByIdAndVisibleTrue(Integer id);
+    Optional<SectionEntity> findByIdAndVisibleTrue(Long id);
 
     Optional<SectionEntity> findBySectionKey(String sectionKey);
 
     @Modifying
     @Transactional
     @Query("update SectionEntity set visible = ?2 where id = ?1 ")
-    int updateVisibleById(Integer id, boolean visible);
+    int updateVisibleById(Long id, boolean visible);
 
 
     @Query("SELECT c.id AS id, " +
