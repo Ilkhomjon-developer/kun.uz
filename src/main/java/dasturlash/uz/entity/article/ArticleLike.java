@@ -26,11 +26,11 @@ public class ArticleLike {
     private Integer articleId;
 
     @ManyToOne
-    @JoinColumn(name = "profile_id", updatable = false, insertable = false)
+    @JoinColumn(name = "profile", updatable = false, insertable = false)
     private ProfileEntity profile;
 
     @ManyToOne
-    @JoinColumn(name = "article_id", updatable = false, insertable = false)
+    @JoinColumn(name = "article", updatable = false, insertable = false)
     private ArticleEntity article;
 
 

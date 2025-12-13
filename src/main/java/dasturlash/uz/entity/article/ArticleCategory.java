@@ -22,10 +22,10 @@ public class ArticleCategory {
     private Integer categoryId;
 
     @ManyToOne
-    @JoinColumn(name = "article_id", updatable = false, insertable = false)
+    @JoinColumn(name = "article", updatable = false, insertable = false)
     private ArticleEntity article;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", updatable = false, insertable = false)
+    @JoinColumn(name = "category", updatable = false, insertable = false)
     private CategoryEntity category;
 }
