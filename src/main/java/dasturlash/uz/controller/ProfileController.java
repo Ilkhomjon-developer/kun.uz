@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,12 +16,14 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<ProfileDTO> create(@Valid @RequestBody ProfileDTO dto){
 
         return ResponseEntity.ok(profileService.create(dto));
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<ProfileDTO> update(@PathVariable("id") Integer id,@Valid @RequestBody ProfileDTO dto){
         return ResponseEntity.ok(profileService.update(id, dto));
@@ -31,12 +34,14 @@ public class ProfileController {
         return ResponseEntity.ok(profileService.updateAny(id, dto));
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/pagination")
     public ResponseEntity<PageImpl<ProfileDTO>> pagination(@RequestParam(value = "page")int page,
                                                            @RequestParam(value = "size")int size){
         return ResponseEntity.ok(profileService.pagination(page, size));
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable("id") Integer id){
         return ResponseEntity.ok(profileService.delete(id));

@@ -1,7 +1,5 @@
 package dasturlash.uz.util;
 
-import java.util.Random;
-
 public class PhoneUtil {
 
     public static String toLocalPhone(String phone) {

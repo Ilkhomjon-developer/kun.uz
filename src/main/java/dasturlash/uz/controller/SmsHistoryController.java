@@ -6,6 +6,7 @@ import dasturlash.uz.util.PhoneUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,18 +21,21 @@ public class SmsHistoryController {
     @Autowired
     private SmsHistoryService smsHistoryService;
 
+    @PreAuthorize( "hasRole('ROLE_ADMIN')")
     @GetMapping("/by-phone")
     public ResponseEntity<List<SmsHistoryDTO>> getSmsHistoryByEmail(@RequestParam("phone") String phone) {
         List<SmsHistoryDTO> history = smsHistoryService.getSmsHistoryByPhone(PhoneUtil.toLocalPhone(phone));
         return ResponseEntity.ok(history);
     }
 
+    @PreAuthorize( "hasRole('ROLE_ADMIN')")
     @GetMapping("/by-date")
     public ResponseEntity<List<SmsHistoryDTO>> getEmailHistoryByDate(@RequestParam("date") LocalDate date) {
         List<SmsHistoryDTO> history = smsHistoryService.getSmsByGivenDate(date);
         return ResponseEntity.ok(history);
     }
 
+    @PreAuthorize( "hasRole('ROLE_ADMIN')")
     @GetMapping("/pagination")
     public ResponseEntity<Page<SmsHistoryDTO>> getPaginatedPhoneHistory(@RequestParam(defaultValue = "0") int page,
                                                                         @RequestParam(defaultValue = "10") int size) {

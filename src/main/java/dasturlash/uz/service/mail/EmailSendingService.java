@@ -93,7 +93,7 @@ public class EmailSendingService {
             helper.setSubject(subject);
             helper.setText(body, true);
 
-            CompletableFuture.runAsync(() -> javaMailSender.send(msg)) ;
+            javaMailSender.send(msg) ;
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);

@@ -1,7 +1,7 @@
 ### Create region
 POST localhost:8080/region/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTQ2MjUxNCwiZXhwIjoxNzY1NTQ4OTE0fQ.uvUnGIWIqqxN5tmrpfkjPNYyySJDyHkDF2Z6sXqYPO7NlRf2BD8kAqg0GlPM_krb
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 1,
@@ -15,7 +15,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ### POST create
 POST localhost:8080/region/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTQ2MjUxNCwiZXhwIjoxNzY1NTQ4OTE0fQ.uvUnGIWIqqxN5tmrpfkjPNYyySJDyHkDF2Z6sXqYPO7NlRf2BD8kAqg0GlPM_krb
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
 "orderNumber": 2,
@@ -30,7 +30,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 
 POST localhost:8080/region/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTQ2MjUxNCwiZXhwIjoxNzY1NTQ4OTE0fQ.uvUnGIWIqqxN5tmrpfkjPNYyySJDyHkDF2Z6sXqYPO7NlRf2BD8kAqg0GlPM_krb
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 3,
@@ -43,6 +43,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ### POST create
 POST localhost:8080/region/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 4,
@@ -55,6 +56,7 @@ Content-Type: application/json
 ### POST create
 POST localhost:8080/region/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 5,
@@ -69,6 +71,7 @@ Content-Type: application/json
 ### Update region
 PUT localhost:8080/region/update/5
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 2,
@@ -81,10 +84,14 @@ Content-Type: application/json
 
 ### Delete category
 DELETE localhost:8080/region/delete/2
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 ### Get region list
 GET localhost:8080/region/getAll
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+
 
 ### Get region by lang
 GET localhost:8080/region/lang
 Accept-Language: EN
+

@@ -106,11 +106,11 @@ public class AuthService {
         ProfileEntity entity = optional.get();
 
         if(UsernameValidation.isEmail(dto.username()) && emailHistoryService.isSmsSendToAccount(dto.username(), dto.code())){
-            entity.setStatus(ProfileStatus.ACTIVE);
-            profileRepository.save(entity);
+            // entity.setStatus(ProfileStatus.ACTIVE);
+            profileRepository.updateStatus(entity.getUsername(), ProfileStatus.ACTIVE);
         } else if (UsernameValidation.isPhone(dto.username()) && smsHistoryService.isSmsSendToAccount(dto.username(), dto.code())) {
-            entity.setStatus(ProfileStatus.ACTIVE);
-            profileRepository.save(entity);
+            // entity.setStatus(ProfileStatus.ACTIVE);
+            profileRepository.updateStatus(entity.getUsername(), ProfileStatus.ACTIVE);
 
         } else{
             throw new AppBadException("Verification code is incorrect or check your phone number or email");

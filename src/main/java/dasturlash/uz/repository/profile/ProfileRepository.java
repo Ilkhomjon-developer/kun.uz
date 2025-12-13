@@ -1,6 +1,7 @@
 package dasturlash.uz.repository.profile;
 
 import dasturlash.uz.entity.profile.ProfileEntity;
+import dasturlash.uz.enums.ProfileStatus;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,4 +27,9 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity,Integer>
     Optional<ProfileEntity> findByUsernameAndVisibleIsTrue(String username);
 
     Page<ProfileEntity> findAllByVisibleIsTrue(Pageable pageable);
+
+    @Modifying
+    @Transactional
+    @Query("update ProfileEntity set status =?2  where username = ?1")
+    void updateStatus(String username, ProfileStatus profileStatus);
 }

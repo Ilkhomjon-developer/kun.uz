@@ -1,7 +1,7 @@
 ### Post create
 POST localhost:8080/profile/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTQ2MjUxNCwiZXhwIjoxNzY1NTQ4OTE0fQ.uvUnGIWIqqxN5tmrpfkjPNYyySJDyHkDF2Z6sXqYPO7NlRf2BD8kAqg0GlPM_krb
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "name": "Ali",
@@ -14,6 +14,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/profile/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "name": "Vali",
@@ -26,6 +27,7 @@ Content-Type: application/json
 ###
 POST localhost:8080/profile/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "name": "Aziz",
@@ -38,6 +40,7 @@ Content-Type: application/json
 ###
 POST localhost:8080/profile/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "name": "Jasur",
@@ -50,6 +53,7 @@ Content-Type: application/json
 ###
 POST localhost:8080/profile/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "name": "Sherzod",
@@ -63,6 +67,7 @@ Content-Type: application/json
 ### Update
 PUT localhost:8080/profile/update/2
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "name": "Vali Valiyev Valijon",
@@ -76,6 +81,7 @@ Content-Type: application/json
 ### Update
 PUT localhost:8080/profile/update/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "name": "Test update id 3",
@@ -87,13 +93,17 @@ Content-Type: application/json
 
 ### Post pagination
 POST localhost:8080/profile/pagination?page=1&size=2
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 ### DELETE
 DELETE localhost:8080/profile/delete/2
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 ### Get test
 GET http://localhost:8080/
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 ### update password
 PUT localhost:8080/profile/updatePassword/4/yyyyyyy
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 

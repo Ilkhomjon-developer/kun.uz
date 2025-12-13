@@ -1,6 +1,7 @@
 ### Post
 POST localhost:8080/category/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 14,
@@ -13,6 +14,7 @@ Content-Type: application/json
 ###
 POST localhost:8080/category/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 2,
@@ -25,6 +27,7 @@ Content-Type: application/json
 ###
 POST localhost:8080/category/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 3,
@@ -37,6 +40,7 @@ Content-Type: application/json
 ###
 POST localhost:8080/category/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 4,
@@ -49,6 +53,7 @@ Content-Type: application/json
 ###
 POST localhost:8080/category/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "orderNumber": 5,
@@ -61,6 +66,7 @@ Content-Type: application/json
 ### UPDATE
 PUT localhost:8080/category/update/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 {
   "nameUz": "jahon1",
@@ -71,10 +77,15 @@ Content-Type: application/json
 
 ### DELETE
 DELETE localhost:8080/category/delete/5
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
 
 ### GET
 GET localhost:8080/category/getAll
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+
 
 ### GET
 GET localhost:8080/category/getAllByLang
 Accept-Language: RU
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+

@@ -52,7 +52,6 @@ public class SmsSenderService {
 
     private void sendSms(String phone, String body){
 
-
         String url = "https://notify.eskiz.uz/api/message/sms/send";
 
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();

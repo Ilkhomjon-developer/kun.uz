@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
  "email" : "maxamadqulovilkhomjon@gmail.com",
-  "password" : ""
+  "password" : "prWKx0yEQKEjOnis8Ploj8PsPkgxYZKdPenLDNje"
 }
 
 ### test
@@ -14,10 +14,10 @@ Content-Type: application/json
 
 POST https://notify.eskiz.uz/api/message/sms/send
 Content-Type: application/json
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjgxNDYyNDEsImlhdCI6MTc2NTU1NDI0MSwicm9sZSI6InRlc3QiLCJzaWduIjoiMjNiMzYzYjdjNWRjNTVkYzE0ZTcwOWZiNmYxNzdmMTUwZTM0OTA0NzVhYjIwMWVlYjJhN2I2MWE0N2E0MWY2OSIsInN1YiI6IjEzNDg5In0.XvP4m2fhZ9KlcxgVwZozKiLU6Byb7-ZfLXykvaAseU0
 
 {
-  "mobile_phone": "+998970073922",
+  "mobile_phone": "998970073922",
   "message": "Bu Eskiz dan test",
   "from": 4546
 
