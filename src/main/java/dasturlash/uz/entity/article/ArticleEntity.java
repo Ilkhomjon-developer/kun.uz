@@ -1,7 +1,10 @@
 package dasturlash.uz.entity.article;
 
 import dasturlash.uz.base.BaseLongEntity;
+import dasturlash.uz.entity.AttachEntity;
 import dasturlash.uz.entity.CategoryEntity;
+import dasturlash.uz.entity.RegionEntity;
+import dasturlash.uz.entity.profile.ProfileEntity;
 import dasturlash.uz.enums.ArticleStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -26,23 +29,36 @@ public class ArticleEntity extends BaseLongEntity {
     private String content;
 
     @Column(name = "shared_count")
-    private Integer sharedCount;
+    private Integer sharedCount =0;
 
     @Column(name = "image_id")
     private String imageId;
 
     @Column(name = "region_id")
-    private Integer regionId;
+    private Long regionId;
 
     @Column(name = "moderator_id")
-    private Integer moderatorId;
+    private Long moderatorId;
 
     @Column(name = "publisher_id")
-    private Integer publisherId;
+    private Long publisherId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "image_id", insertable = false, updatable = false)
+    private AttachEntity image;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id", insertable = false, updatable = false)
+    private RegionEntity region;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publisher_id", insertable = false, updatable = false)
+    private ProfileEntity publisher;
 
 
-    @OneToMany(mappedBy = "articles", fetch = FetchType.LAZY)
-    private List<CategoryEntity> categories;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "moderator_id", insertable = false, updatable = false)
+    private ProfileEntity moderator;
 
 
     @Column(name = "status")
@@ -50,7 +66,7 @@ public class ArticleEntity extends BaseLongEntity {
     private ArticleStatus status;
 
     @Column(name = "read_time")
-    private String readTime;
+    private Integer readTime;
 
     @Column(name = "visible")
     private Boolean visible = Boolean.TRUE;

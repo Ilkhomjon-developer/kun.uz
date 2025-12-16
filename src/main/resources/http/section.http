@@ -1,7 +1,7 @@
 ### POST
 POST localhost:8080/section/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 1,
@@ -14,7 +14,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/section/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 2,
@@ -27,7 +27,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/section/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 3,
@@ -40,7 +40,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/section/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 4,
@@ -53,7 +53,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/section/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 5,
@@ -67,7 +67,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ### UPDATE
 PUT localhost:8080/section/update/5
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "nameUz": "Intervyu111",
@@ -78,7 +78,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 
 ### DELETE
 DELETE localhost:8080/section/delete/4
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 ### GET
 GET localhost:8080/section/getAllByLang

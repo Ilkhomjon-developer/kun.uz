@@ -1,7 +1,7 @@
 ### Post
 POST localhost:8080/category/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInVzZXJuYW1lIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsInN1YiI6Im1heGFtYWRxdWxvdmlsa2hvbWpvbkBnbWFpbC5jb20iLCJpYXQiOjE3NjU4ODM1ODAsImV4cCI6MTc2NTk2OTk4MH0.Y-zAGpSGj5GAKeuaTEwiJPAiG2hN3X7MjxSxBoTzPeY3i5XPY1LCziSceSjno7IA
 
 {
   "orderNumber": 14,
@@ -14,7 +14,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/category/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 2,
@@ -27,7 +27,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/category/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 3,
@@ -40,7 +40,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/category/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 4,
@@ -53,7 +53,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ###
 POST localhost:8080/category/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 5,
@@ -66,7 +66,7 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 ### UPDATE
 PUT localhost:8080/category/update/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 {
   "nameUz": "jahon1",
@@ -77,15 +77,15 @@ Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hb
 
 ### DELETE
 DELETE localhost:8080/category/delete/5
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 ### GET
 GET localhost:8080/category/getAll
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 
 
 ### GET
 GET localhost:8080/category/getAllByLang
 Accept-Language: RU
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwidXNlcm5hbWUiOiJtYXhhbWFkcXVsb3ZpbGtob21qb25AZ21haWwuY29tIiwic3ViIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsImlhdCI6MTc2NTYwNjM1NCwiZXhwIjoxNzY1NjkyNzU0fQ.bUzouTTBQXE9JYISVHBpaLokG7mnikdnDxJ1NIOEdEpftz5YX4S-POSYSueF-cJs
+Authorization: Bearer {{jwt}}
 

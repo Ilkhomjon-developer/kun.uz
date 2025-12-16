@@ -1,0 +1,155 @@
+
+### Create Article
+POST http://localhost:8080/article/create
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "title": "Yangilik nomi",
+  "description": "Bu yangilikning qisqacha tavsifi",
+  "content": "Bu yangilikning to‘liq matni va mazmuni",
+  "imageId": "19079cda-61f4-47fe-ab9d-b51cea697b63.jpg",
+  "regionId": 2,
+  "readTime": 5,
+  "moderatorId": 101,
+  "categoryList": [
+    {
+      "id": 1,
+      "name": "Texnologiya"
+    },
+    {
+      "id": 2,
+      "name": "Iqtisodiyot"
+    }
+  ],
+  "sectionList": [
+    {
+      "id": 1,
+      "name": "Mahalliy"
+    },
+    {
+      "id": 2,
+      "name": "Xorijiy"
+    }
+  ]
+}
+
+### Create Article
+POST http://localhost:8080/article/create
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "title": "Iqlim o‘zgarishi ta’siri",
+  "description": "Global isish va uning natijalari",
+  "content": "Dunyo bo‘ylab iqlim o‘zgarishi oqibatida ob-havo hodisalari kuchaymoqda...",
+  "imageId": 98765,
+  "regionId": 3,
+  "readTime": 8,
+  "moderatorId": 202,
+  "categoryList": [
+    {
+      "id": 3,
+      "name": "Ekologiya"
+    },
+    {
+      "id": 4,
+      "name": "Siyosat"
+    }
+  ],
+  "sectionList": [
+    {
+      "id": 3,
+      "name": "Tahlil"
+    },
+    {
+      "id": 4,
+      "name": "Yangiliklar"
+    }
+  ]
+}
+
+
+### UPDATE Article
+PUT http://localhost:8080/article/update/6
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "title": "mmmmYangilik nomi",
+  "description": "mmmBu yangilikning qisqacha tavsifi",
+  "content": "Bu yangilikning to‘liq matni va mazmuni",
+  "imageId": 124345,
+  "regionId": 2,
+  "readTime": 5,
+  "moderatorId": 101,
+  "categoryList": [
+    {
+      "id": 1,
+      "name": "Texnologiya ll"
+    },
+    {
+      "id": 2,
+      "name": "Iqtisodiyot ll"
+    }
+  ],
+  "sectionList": [
+    {
+      "id": 1,
+      "name": "Mahalliy ll"
+    },
+    {
+      "id": 2,
+      "name": "Xorijiy"
+    }
+  ]
+}
+
+### Change Status
+PUT http://localhost:8080/article/change-Status/3
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+  "PUBLISHED"
+
+
+### Delete
+DELETE http://localhost:8080/article/delete/2
+Authorization: Bearer {{jwt}}
+
+
+### Get
+GET http://localhost:8080/article/getBySectionId/2/3
+Authorization: Bearer {{jwt}}
+
+### Get
+GET http://localhost:8080/article/getLastN
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+  [1, 2]
+
+
+### Get
+GET http://localhost:8080/article/getLastNArticlesByCategoryId/2/1
+Authorization: Bearer {{jwt}}
+
+### Get
+GET http://localhost:8080/article/getLastNByRegionId/2/3
+Authorization: Bearer {{jwt}}
+
+### Get
+GET http://localhost:8080/article/getNMostReadArticles/5
+Authorization: Bearer {{jwt}}
+
+### Get
+PUT http://localhost:8080/article/increaseArticleViewCountByArticleId/2
+Authorization: Bearer {{jwt}}
+
+### Get
+PUT http://localhost:8080/article/increaseArticleSharedCountByArticleId/2
+Authorization: Bearer {{jwt}}
+
+
+
+

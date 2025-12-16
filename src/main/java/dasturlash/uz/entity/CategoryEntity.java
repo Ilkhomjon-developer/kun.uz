@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,8 +33,5 @@ public class CategoryEntity extends BaseLongEntity {
     @Column(name = "visible")
     private Boolean visible = Boolean.TRUE;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Set<ArticleEntity> articles;
 
 }

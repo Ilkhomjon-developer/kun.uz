@@ -19,13 +19,14 @@ Content-Type: application/json
   "password": "12345"
 }
 
+> {% client.global.set("jwt", response.body.jwt); %}
+
 ### Verification
 POST localhost:8080/auth/regVerification
 Content-Type: application/json
 
 {
   "username": "maxamadqulovilkhomjon@gmail.com",
-  "code": 83736
+  "code": 40670
 
 }
-
