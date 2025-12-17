@@ -1,6 +1,7 @@
-package dasturlash.uz.dto;
+package dasturlash.uz.dto.article;
 
-import jakarta.validation.constraints.NotEmpty;
+import dasturlash.uz.dto.CategoryDTO;
+import dasturlash.uz.dto.SectionDTO;
 import lombok.Getter;
 import lombok.Setter;
 

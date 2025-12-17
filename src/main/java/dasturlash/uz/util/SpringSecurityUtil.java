@@ -1,6 +1,7 @@
 package dasturlash.uz.util;
 
 import dasturlash.uz.config.CustomUserDetails;
+import dasturlash.uz.enums.ProfileRole;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 

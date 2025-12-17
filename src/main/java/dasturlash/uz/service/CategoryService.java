@@ -136,4 +136,17 @@ public class CategoryService {
     public List<CategoryEntity> getCategoryList(List<Long> categoryIdList){
         return categoryRepository.findByIdIn(categoryIdList);
     }
+
+
+    public List<CategoryDTO> getCategoryListByArticleIdAndLang(Long id, AppLanguageEnum lang) {
+        List<CategoryMapper> iterable = categoryRepository.getCategoryListByArticleIdAndLang(id, lang.name());
+        List<CategoryDTO> dtoList = new LinkedList<>();
+        iterable.forEach(mapper -> {
+            CategoryDTO dto = new CategoryDTO();
+            dto.setId(mapper.getId());
+            dto.setName(mapper.getName());
+            dto.setCategoryKey(mapper.getCategoryKey());
+            dtoList.add(dto);
+        });
+        return dtoList;    }
 }

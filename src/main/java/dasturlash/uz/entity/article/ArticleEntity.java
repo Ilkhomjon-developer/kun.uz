@@ -1,5 +1,6 @@
 package dasturlash.uz.entity.article;
 
+import dasturlash.uz.base.BaseLanguageEntity;
 import dasturlash.uz.base.BaseLongEntity;
 import dasturlash.uz.entity.AttachEntity;
 import dasturlash.uz.entity.CategoryEntity;
@@ -17,7 +18,7 @@ import java.util.List;
 @Table(name = "article")
 @Getter
 @Setter
-public class ArticleEntity extends BaseLongEntity {
+public class ArticleEntity extends BaseLanguageEntity {
 
     @Column(name = "title")
     private String title;
@@ -64,6 +65,9 @@ public class ArticleEntity extends BaseLongEntity {
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private ArticleStatus status;
+
+    @Column(name = "tag_name")
+    private String tagName;
 
     @Column(name = "read_time")
     private Integer readTime;

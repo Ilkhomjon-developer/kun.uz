@@ -38,4 +38,14 @@ public interface RegionRepository extends CrudRepository<RegionEntity, Long> {
             "WHERE c.visible = true order by orderNumber asc")
     Iterable<RegionMapper> findAllByLanguageAndVisibleIsTrue(@Param("lang") String lang);
 
+    @Query("SELECT c.id AS id, " +
+            "CASE :lang " +
+            "   WHEN 'UZ' THEN c.nameUz " +
+            "   WHEN 'RU' THEN c.nameRu " +
+            "   WHEN 'EN' THEN c.nameEn " +
+            "END AS name, " +
+            "c.regionKey AS regionKey " +
+            "FROM RegionEntity c " +
+            "WHERE c.visible = true and c.id = :id")
+    Optional<RegionMapper> getByIdAndLang(@Param("articleId")Long id, @Param("lang") String name);
 }

@@ -1,13 +1,16 @@
 package dasturlash.uz.controller;
 
-import dasturlash.uz.dto.ArticleCreateDTO;
-import dasturlash.uz.dto.ArticleDTO;
+import dasturlash.uz.dto.article.ArticleCreateDTO;
+import dasturlash.uz.dto.article.ArticleDTO;
+import dasturlash.uz.dto.article.ArticleFilterDTO;
+import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.enums.ArticleStatus;
+import dasturlash.uz.mapper.ArticleShortInfoMapper;
 import dasturlash.uz.service.artilce.ArticleService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -80,4 +83,37 @@ public class ArticleController {
         return ResponseEntity.ok(articleService.increaseArticleSharedCountByArticleId(articleId));
     }
 
+    @GetMapping("/get-by-lang/{id}")
+    public ResponseEntity<ArticleDTO> getByIdAndLang(@PathVariable Long id, @RequestHeader(name = "Accept-Language", defaultValue ="uz") AppLanguageEnum lang){
+        return ResponseEntity.ok(articleService.getByIdAndLang(id, lang));
+    }
+
+    @GetMapping("/get-last-n-article")
+    public ResponseEntity<List<ArticleDTO>> getLastNArticle(@RequestParam("limit") Integer limit){
+        return ResponseEntity.ok(articleService.getLastNArticle(limit));
+    }
+
+    @GetMapping("/get-by-tag-name")
+    public ResponseEntity<List<ArticleDTO>> getNArticlesByTagName(@RequestParam("tagName") String tagName, @RequestParam("limit") Integer limit){
+        return ResponseEntity.ok(articleService.getNArticlesByTagName(tagName, limit));
+    }
+
+    @PostMapping("/filter")
+    public ResponseEntity<Page<ArticleFilterDTO>> filter(@RequestBody ArticleFilterDTO filter, @RequestParam("page") int page, @RequestParam("size") int size){
+        return ResponseEntity.ok(articleService.filter(filter, page, size));
+    }
+
+    @PostMapping("/filterForModerator")
+    public ResponseEntity<Page<ArticleFilterDTO>> filterForModerator(@RequestBody ArticleFilterDTO filter, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return ResponseEntity.ok(articleService.filterForModerator(filter, page, size));
+    }
+    @PostMapping("/filterForPublisher")
+    public ResponseEntity<Page<ArticleFilterDTO>> filterForPublisher(@RequestBody ArticleFilterDTO filter, @RequestParam("page") int page, @RequestParam("size") int size){
+        return ResponseEntity.ok(articleService.filterForPublisher(filter, page, size));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<ArticleShortInfoMapper>> search(@RequestParam("title") String title, @RequestParam("page") int page, @RequestParam("size") int size){
+        return ResponseEntity.ok(articleService.search(title, page, size));
+    }
 }

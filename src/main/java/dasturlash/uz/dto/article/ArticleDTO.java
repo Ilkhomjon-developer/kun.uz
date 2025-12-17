@@ -1,9 +1,11 @@
-package dasturlash.uz.dto;
+package dasturlash.uz.dto.article;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import dasturlash.uz.dto.AttachDTO;
 import dasturlash.uz.dto.CategoryDTO;
+import dasturlash.uz.dto.RegionDTO;
 import dasturlash.uz.dto.SectionDTO;
+import dasturlash.uz.dto.profile.ProfileDTO;
 import dasturlash.uz.enums.ArticleStatus;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,8 +26,10 @@ public class ArticleDTO {
     private String imageId;
     private AttachDTO image;
     private Long regionId;
+    private RegionDTO region;
 
     private Long moderatorId;
+    private ProfileDTO moderator;
     private Long publisherId;
 
     private ArticleStatus status;

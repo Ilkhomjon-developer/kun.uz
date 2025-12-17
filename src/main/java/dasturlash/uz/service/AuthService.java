@@ -77,7 +77,6 @@ public class AuthService {
         return "Successfully registered";
     }
 
-
     public String regVerification(VerificationDTO dto){
 
         Optional<ProfileEntity> optional = profileRepository.findByUsernameAndVisibleIsTrue(dto.username());
@@ -103,8 +102,6 @@ public class AuthService {
 
         return "Account Successfully Activated";
     }
-
-
 
     public ProfileDTO login(AuthDTO dto){
 

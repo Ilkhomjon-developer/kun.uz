@@ -18,6 +18,7 @@ public class CustomUserDetails implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    @Getter
     private Collection<? extends GrantedAuthority> role;
     private ProfileStatus status;
 

@@ -61,9 +61,7 @@ public class RegionService {
     }
 
     public Boolean delete(Long id) {
-//        RegionEntity entity = get(id);
-//        entity.setVisible(false);
-//        regionRepository.save(entity);
+
         return regionRepository.updateVisibleById(id, false) == 1;
     }
 
@@ -118,10 +116,17 @@ public class RegionService {
         return dto;
     }
 
-
-
-
-
-
-
+    public RegionDTO getByIdAndLang(Long id, AppLanguageEnum lang) {
+        Optional<RegionMapper> regionOp = regionRepository.getByIdAndLang(id, lang.name());
+        if (regionOp.isEmpty()) {
+            return null;
+        }
+        return regionOp.map(mapper -> {
+            RegionDTO dto = new RegionDTO();
+            dto.setId(mapper.getId());
+            dto.setName(mapper.getName());
+            dto.setRegionKey(mapper.getRegionKey());
+            return dto;
+        }).get();
+    }
 }

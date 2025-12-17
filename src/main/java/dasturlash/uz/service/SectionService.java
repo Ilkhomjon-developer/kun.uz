@@ -1,5 +1,6 @@
 package dasturlash.uz.service;
 
+import dasturlash.uz.dto.CategoryDTO;
 import dasturlash.uz.dto.SectionDTO;
 import dasturlash.uz.entity.SectionEntity;
 import dasturlash.uz.enums.AppLanguageEnum;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -121,8 +123,6 @@ public class SectionService {
         return dtoList;
     }
 
-
-
     private SectionDTO toLanguageResponseDTO(SectionMapper mapper) {
 
         SectionDTO dto = new SectionDTO();
@@ -135,4 +135,16 @@ public class SectionService {
 
     }
 
+    public List<SectionDTO> getSectionListByArticleIdAndLang(Long id, AppLanguageEnum lang) {
+        List<SectionMapper> iterable = sectionRepository.getSectionListByArticleIdAndLang(id, lang.name());
+        List<SectionDTO> dtoList = new LinkedList<>();
+        iterable.forEach(mapper -> {
+            SectionDTO dto = new SectionDTO();
+            dto.setId(mapper.getId());
+            dto.setName(mapper.getName());
+            dto.setSectionKey(mapper.getSectionKey());
+            dtoList.add(dto);
+        });
+        return dtoList;
+    }
 }
