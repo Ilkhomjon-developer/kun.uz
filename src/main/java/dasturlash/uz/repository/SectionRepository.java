@@ -53,6 +53,6 @@ public interface SectionRepository extends CrudRepository<SectionEntity,Long>, P
             "FROM SectionEntity s " +
             " inner join ArticleSectionEntity  ase on ase.sectionId = s.id " +
             "WHERE ase.articleId = :articleId and s.visible = true order by s.orderNumber asc")
-    List<SectionMapper> getSectionListByArticleIdAndLang(Long id, String name);
+    List<SectionMapper> getSectionListByArticleIdAndLang(@Param("articleId")Long id, @Param("lang") String lang);
 }
 

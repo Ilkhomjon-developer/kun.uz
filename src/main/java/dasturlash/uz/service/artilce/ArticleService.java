@@ -1,15 +1,15 @@
 package dasturlash.uz.service.artilce;
 
-import dasturlash.uz.dto.article.ArticleCreateDTO;
-import dasturlash.uz.dto.article.ArticleDTO;
-import dasturlash.uz.dto.article.ArticleFilterDTO;
+import dasturlash.uz.dto.article.*;
 import dasturlash.uz.dto.profile.ProfileDTO;
 import dasturlash.uz.entity.article.ArticleEntity;
 import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.enums.ArticleStatus;
 import dasturlash.uz.exps.AppBadException;
 import dasturlash.uz.mapper.ArticleShortInfoMapper;
+import dasturlash.uz.repository.article.ArticleCustomRepository;
 import dasturlash.uz.repository.article.ArticleRepository;
+import dasturlash.uz.service.AttachService;
 import dasturlash.uz.service.CategoryService;
 import dasturlash.uz.service.RegionService;
 import dasturlash.uz.service.SectionService;
@@ -21,10 +21,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,9 +32,9 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
     private final ArticleCategoryService articleCategoryService;
     private final ArticleSectionService articleSectionService;
+    private final ArticleCustomRepository articleCustomRepository;
     private final RegionService regionService;
-    private final EntityManager entityManager;
-
+    private final AttachService attachService;
     private final CategoryService categoryService;
     private final SectionService sectionService;
 
@@ -159,7 +158,7 @@ public class ArticleService {
         dto.setViewCount(entity.getViewCount());
         dto.setPublishedDate(entity.getPublishedDate());
 
-        dto.setRegion(regionService.getByIdAndLang(entity.getId(),lang));
+        dto.setRegion(regionService.getByIdAndLang(entity.getRegionId(),lang));
         dto.setSectionList(sectionService.getSectionListByArticleIdAndLang(entity.getId(), lang));
         dto.setCategoryList(categoryService.getCategoryListByArticleIdAndLang(entity.getId(), lang));
 
@@ -186,6 +185,7 @@ public class ArticleService {
         return responseList;
     }
 
+
     public List<ArticleDTO> getNArticlesByTagName(String tagName, int limit){
 
         List<ArticleEntity> articleEntities = articleRepository.getNArticlesByTagName(tagName, limit);
@@ -195,199 +195,66 @@ public class ArticleService {
         return dtoList;
     }
 
-    public Page<ArticleFilterDTO> filter(ArticleFilterDTO filter, int page, int size){
 
-        StringBuilder selectQueryBuilder = new StringBuilder("SELECT s FROM ArticleEntity s ");
-        StringBuilder countQueryBuilder = new StringBuilder("SELECT count(s) FROM ArticleEntity s ");
-        StringBuilder builder = new StringBuilder(" where s.status = 'PUBLISHED' and s.visible = true ");
+    public Page<ArticleDTO> filter(ArticleFilterDTO filter, int page, int size, Boolean isModerator) { // 1, 100
+        FilterResultDTO<Object[]> filterResult = articleCustomRepository.filter(filter, page, size, isModerator);
+        List<ArticleDTO> articleList = new LinkedList<>();
+        for (Object[] obj : filterResult.getContent()) {
+            ArticleDTO article = new ArticleDTO();
 
-        Map<String, Object> params = new HashMap<>();
-
-        if (filter.getTitle() != null) { // condition by id
-            builder.append(" and s.title=:title ");
-            params.put("title", filter.getTitle());
+            article.setId((Long) obj[0]);
+            article.setTitle((String) obj[1]);
+            article.setDescription((String) obj[2]);
+            article.setPublishedDate((LocalDateTime) obj[3]);
+            if (obj[4] != null) {
+                article.setImage(attachService.openDTO((String) obj[4]));
+            }
+            articleList.add(article);
         }
-        if (filter.getRegionId() != null) { // condition by name
-           builder.append(" and s.regionId=:regionId ");
-           params.put("regionId", filter.getRegionId());
-
-        }
-        if (filter.getSectionId() != null) { // condition by surname with like
-            builder.append(" and s.sectionId=:sectionId ");
-            params.put("sectionId", filter.getSectionId());
-        }
-        if(filter.getCategoryId() != null){
-            builder.append(" and s.categoryId=:categoryId ");
-            params.put("categoryId", filter.getCategoryId());
-        }
-        if(filter.getPublishedDateFrom() != null && filter.getPublishedDateTo() != null){
-
-            builder.append(" and s.publishedDate between :publishedDateFrom and :publishedDateTo ");
-            params.put("publishedDateFrom", filter.getPublishedDateFrom());
-            params.put("publishedDateTo", filter.getPublishedDateTo());
-        }
-        if (filter.getPublishedDateFrom() != null){
-            builder.append(" and s.publishedDate >= :publishedDateFrom ");
-            params.put("publishedDateFrom", filter.getPublishedDateFrom());
-        }
-        if (filter.getPublishedDateTo() != null){
-            builder.append(" and s.publishedDate <= :publishedDateTo ");
-            params.put("publishedDateTo", filter.getPublishedDateTo());
-        }
-
-        Query selectQuery = entityManager.createQuery(selectQueryBuilder.toString());
-        selectQuery.setFirstResult((page) * size);
-        selectQuery.setMaxResults(size);
-        params.forEach(selectQuery::setParameter);
-
-        List<ArticleFilterDTO> profileEntityList = selectQuery.getResultList();
-
-        Query countQuery = entityManager.createQuery(countQueryBuilder.toString());
-        params.forEach(countQuery::setParameter);
-
-        Long totalElements = (Long) countQuery.getSingleResult();
-
-        return new PageImpl<>(profileEntityList, PageRequest.of(page, size), totalElements);
+        return new PageImpl<>(articleList, PageRequest.of(page, size), filterResult.getTotal());
     }
 
-    public Page<ArticleFilterDTO> filterForModerator(ArticleFilterDTO filter, int page, int size){
 
-        StringBuilder selectQueryBuilder = new StringBuilder("SELECT s FROM ArticleEntity s ");
-        StringBuilder countQueryBuilder = new StringBuilder("SELECT count(s) FROM ArticleEntity s ");
-        StringBuilder builder = new StringBuilder(" where s.visible = true ");
+    public Page<ArticleDTO> filterAsAdmin(ArticleAdminFilterDTO filter, int page, int size) { // 1, 100
+        FilterResultDTO<Object[]> filterResult = articleCustomRepository.filterAsAdmin(filter, page, size);
+        List<ArticleDTO> articleList = new LinkedList<>();
+        for (Object[] obj : filterResult.getContent()) {
+            ArticleDTO article = new ArticleDTO();
 
-        Map<String, Object> params = new HashMap<>();
-        Long currentModeratorId = SpringSecurityUtil.currentProfileId();
-
-        if (currentModeratorId == null){
-            throw new AppBadException("You are not logged in");
+            article.setId((Long) obj[0]);
+            article.setTitle((String) obj[1]);
+            article.setDescription((String) obj[2]);
+            article.setPublishedDate((LocalDateTime) obj[3]);
+            article.setPublishedDate((LocalDateTime) obj[4]);
+            if (obj[5] != null) {
+                article.setImage(attachService.openDTO((String) obj[5]));
+            }
+            if (obj[6] != null) {
+                article.setStatus((ArticleStatus) obj[6]);
+            }
+            articleList.add(article);
         }
 
-        builder.append(" and s.moderatorId=:currentModeratorId ");
-        params.put("currentModeratorId", currentModeratorId);
-
-
-        if (filter.getTitle() != null) { // condition by id
-            builder.append(" and s.title=:title ");
-            params.put("title", filter.getTitle());
-        }
-        if (filter.getRegionId() != null) { // condition by name
-           builder.append(" and s.regionId=:regionId ");
-           params.put("regionId", filter.getRegionId());
-
-        }
-        if (filter.getSectionId() != null) { // condition by surname with like
-            builder.append(" and s.sectionId=:sectionId ");
-            params.put("sectionId", filter.getSectionId());
-        }
-        if(filter.getCategoryId() != null){
-            builder.append(" and s.categoryId=:categoryId ");
-            params.put("categoryId", filter.getCategoryId());
-        }
-        if(filter.getPublishedDateFrom() != null && filter.getPublishedDateTo() != null){
-
-            builder.append(" and s.publishedDate between :publishedDateFrom and :publishedDateTo ");
-            params.put("publishedDateFrom", filter.getPublishedDateFrom());
-            params.put("publishedDateTo", filter.getPublishedDateTo());
-        }
-        if (filter.getPublishedDateFrom() != null){
-            builder.append(" and s.publishedDate >= :publishedDateFrom ");
-            params.put("publishedDateFrom", filter.getPublishedDateFrom());
-        }
-        if (filter.getPublishedDateTo() != null){
-            builder.append(" and s.publishedDate <= :publishedDateTo ");
-            params.put("publishedDateTo", filter.getPublishedDateTo());
-        }
-
-        selectQueryBuilder.append(builder);
-        countQueryBuilder.append(builder);
-
-        Query selectQuery = entityManager.createQuery(selectQueryBuilder.toString());
-        selectQuery.setFirstResult((page) * size);
-        selectQuery.setMaxResults(size);
-        params.forEach(selectQuery::setParameter);
-
-        List<ArticleFilterDTO> profileEntityList = selectQuery.getResultList();
-
-        Query countQuery = entityManager.createQuery(countQueryBuilder.toString());
-        params.forEach(countQuery::setParameter);
-
-        Long totalElements = (Long) countQuery.getSingleResult();
-
-        return new PageImpl<>(profileEntityList, PageRequest.of(page, size), totalElements);
+        return new PageImpl<>(articleList, PageRequest.of(page, size), filterResult.getTotal());
     }
 
-    public Page<ArticleFilterDTO> filterForPublisher(ArticleFilterDTO filter, int page, int size){
 
-        StringBuilder selectQueryBuilder = new StringBuilder("SELECT s FROM ArticleEntity s ");
-        StringBuilder countQueryBuilder = new StringBuilder("SELECT count(s) FROM ArticleEntity s ");
-        StringBuilder builder = new StringBuilder(" where s.visible = true ");
-
-        Map<String, Object> params = new HashMap<>();
-        Long publisherId = SpringSecurityUtil.currentProfileId();
-
-        if (publisherId == null){
-            throw new AppBadException("You are not logged in");
-        }
-
-        builder.append(" and s.publisherId=:publisherId ");
-        params.put("publisherId", publisherId);
-
-
-        if (filter.getTitle() != null) { // condition by id
-            builder.append(" and s.title=:title ");
-            params.put("title", filter.getTitle());
-        }
-        if (filter.getRegionId() != null) { // condition by name
-           builder.append(" and s.regionId=:regionId ");
-           params.put("regionId", filter.getRegionId());
-
-        }
-        if (filter.getSectionId() != null) { // condition by surname with like
-            builder.append(" and s.sectionId=:sectionId ");
-            params.put("sectionId", filter.getSectionId());
-        }
-        if(filter.getCategoryId() != null){
-            builder.append(" and s.categoryId=:categoryId ");
-            params.put("categoryId", filter.getCategoryId());
-        }
-        if(filter.getPublishedDateFrom() != null && filter.getPublishedDateTo() != null){
-
-            builder.append(" and s.publishedDate between :publishedDateFrom and :publishedDateTo ");
-            params.put("publishedDateFrom", filter.getPublishedDateFrom());
-            params.put("publishedDateTo", filter.getPublishedDateTo());
-        }
-        if (filter.getPublishedDateFrom() != null){
-            builder.append(" and s.publishedDate >= :publishedDateFrom ");
-            params.put("publishedDateFrom", filter.getPublishedDateFrom());
-        }
-        if (filter.getPublishedDateTo() != null){
-            builder.append(" and s.publishedDate <= :publishedDateTo ");
-            params.put("publishedDateTo", filter.getPublishedDateTo());
-        }
-
-        selectQueryBuilder.append(builder);
-        countQueryBuilder.append(builder);
-
-        Query selectQuery = entityManager.createQuery(selectQueryBuilder.toString());
-        selectQuery.setFirstResult((page) * size);
-        selectQuery.setMaxResults(size);
-        params.forEach(selectQuery::setParameter);
-
-        List<ArticleFilterDTO> profileEntityList = selectQuery.getResultList();
-
-        Query countQuery = entityManager.createQuery(countQueryBuilder.toString());
-        params.forEach(countQuery::setParameter);
-
-        Long totalElements = (Long) countQuery.getSingleResult();
-
-        return new PageImpl<>(profileEntityList, PageRequest.of(page, size), totalElements);
-    }
-
-    public Page<ArticleShortInfoMapper> search(String title, int page, int size){
+    public Page<ArticleFilterDTO> search(ArticleFilterDTO dto, int page, int size){
         Pageable pageRequest = PageRequest.of(page, size, Sort.by("createdDate").descending());
-        return articleRepository.findByTitle(title, pageRequest);
+        Page<ArticleEntity> pageResult = articleRepository.findByTitle(dto.getTitle(), pageRequest);
+
+        List<ArticleFilterDTO> filterDto = pageResult.getContent().stream()
+                .map(entity -> {
+                    ArticleFilterDTO articleFilterDTO = new ArticleFilterDTO();
+                    articleFilterDTO.setTitle(entity.getTitle());
+                    articleFilterDTO.setRegionId(entity.getRegionId());
+                    articleFilterDTO.setCreatedDateFrom(entity.getPublishedDate());
+                    return articleFilterDTO;
+                }).collect(Collectors.toList());
+
+        return new PageImpl<>(filterDto, pageRequest, pageResult.getTotalElements());
     }
+
 
     private ArticleDTO toDTO(ArticleEntity entity) {
         ArticleDTO dto = new ArticleDTO();

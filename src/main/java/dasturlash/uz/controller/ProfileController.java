@@ -3,6 +3,7 @@ package dasturlash.uz.controller;
 import dasturlash.uz.dto.profile.ProfileDTO;
 import dasturlash.uz.service.profile.ProfileService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/profile")
+@RequiredArgsConstructor
 public class ProfileController {
 
-    @Autowired
-    private ProfileService profileService;
+    private final ProfileService profileService;
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/create")

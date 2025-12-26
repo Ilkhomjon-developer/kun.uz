@@ -47,5 +47,6 @@ public interface RegionRepository extends CrudRepository<RegionEntity, Long> {
             "c.regionKey AS regionKey " +
             "FROM RegionEntity c " +
             "WHERE c.visible = true and c.id = :id")
-    Optional<RegionMapper> getByIdAndLang(@Param("articleId")Long id, @Param("lang") String name);
+    Optional<RegionMapper> getByIdAndLang(@Param("id")Long id, @Param("lang") String lang);
+
 }

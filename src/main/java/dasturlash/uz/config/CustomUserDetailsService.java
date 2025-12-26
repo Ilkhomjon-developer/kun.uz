@@ -4,7 +4,9 @@ import dasturlash.uz.entity.profile.ProfileEntity;
 import dasturlash.uz.enums.ProfileRole;
 import dasturlash.uz.repository.profile.ProfileRepository;
 import dasturlash.uz.repository.profile.ProfileRoleRepository;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,7 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Setter
+@Getter
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {

@@ -11,18 +11,17 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "article_like")
-public class ArticleLikeEntity {
-
+@Table(name = "comment_like")
+public class CommentLikeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "article_id")
-    private Long articleId;
+    @Column(name = "comment_id")
+    private Long commentId;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "article_id", insertable = false, updatable = false)
-    private ArticleEntity article;
+    @JoinColumn(name = "comment_id", insertable = false, updatable = false)
+    private CommentEntity comment;
 
     @Column(name = "profile_id")
     private Long profileId;

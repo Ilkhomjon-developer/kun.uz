@@ -33,6 +33,9 @@ public class AttachService {
     @Value("${attach.dir}")
     private String attachDir;
 
+
+    private final String attachUrl = "attaches";
+
     public AttachDTO uploadFile(MultipartFile file) {
 
         try {
@@ -142,5 +145,12 @@ public class AttachService {
             throw new RuntimeException("File not found");
         }
         return optional.get();
+    }
+
+    public AttachDTO openDTO(String id) {
+        AttachDTO attachDTO = new AttachDTO();
+        attachDTO.setUrl(attachUrl + "/api/v1/attach/open/" + id);
+        attachDTO.setId(id);
+        return attachDTO;
     }
 }

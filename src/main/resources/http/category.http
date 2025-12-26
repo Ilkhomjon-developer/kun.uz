@@ -1,7 +1,7 @@
 ### Post
 POST localhost:8080/category/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInVzZXJuYW1lIjoibWF4YW1hZHF1bG92aWxraG9tam9uQGdtYWlsLmNvbSIsInN1YiI6Im1heGFtYWRxdWxvdmlsa2hvbWpvbkBnbWFpbC5jb20iLCJpYXQiOjE3NjU4ODM1ODAsImV4cCI6MTc2NTk2OTk4MH0.Y-zAGpSGj5GAKeuaTEwiJPAiG2hN3X7MjxSxBoTzPeY3i5XPY1LCziSceSjno7IA
+Authorization: Bearer {{jwt}}
 
 {
   "orderNumber": 14,

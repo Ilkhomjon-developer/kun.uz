@@ -53,5 +53,5 @@ public interface CategoryRepository extends CrudRepository<CategoryEntity,Long>{
             "FROM CategoryEntity c " +
             " inner join ArticleCategoryEntity ace on ace.categoryId = c.id " +
             "WHERE ace.articleId = :articleId and c.visible = true order by c.orderNumber asc")
-    List<CategoryMapper> getCategoryListByArticleIdAndLang(Long articleId, String name);
+    List<CategoryMapper> getCategoryListByArticleIdAndLang(@Param("articleId") Long articleId,@Param("lang") String lang);
 }

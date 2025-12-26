@@ -39,4 +39,5 @@ public class ArticleDTO {
     private LocalDateTime publishedDate;
     private List<CategoryDTO> categoryList;
     private List<SectionDTO> sectionList;
+    private String name;
 }

@@ -1,6 +1,7 @@
 package dasturlash.uz.config;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -16,12 +17,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-@RequiredArgsConstructor
 public class SpringConfig {
+    @Autowired
+    private  CustomUserDetailsService customUserDetails;
+    @Autowired
+    private  BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    private  JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    private final CustomUserDetailsService customUserDetails;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
 
     public static final String[] AUTH_WHITELIST = {

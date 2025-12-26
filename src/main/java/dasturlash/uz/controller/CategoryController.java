@@ -4,6 +4,7 @@ import dasturlash.uz.dto.CategoryDTO;
 import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.service.CategoryService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,10 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/category")
+@RequiredArgsConstructor
 public class CategoryController {
 
-    @Autowired
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")

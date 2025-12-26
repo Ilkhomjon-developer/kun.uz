@@ -3,6 +3,7 @@ package dasturlash.uz.controller;
 import dasturlash.uz.dto.sms.SmsHistoryDTO;
 import dasturlash.uz.service.mail.SmsHistoryService;
 import dasturlash.uz.util.PhoneUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/sms-history")
+@RequiredArgsConstructor
 public class SmsHistoryController {
-    @Autowired
-    private SmsHistoryService smsHistoryService;
+
+    private final SmsHistoryService smsHistoryService;
 
     @PreAuthorize( "hasRole('ROLE_ADMIN')")
     @GetMapping("/by-phone")

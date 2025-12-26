@@ -43,7 +43,7 @@ Authorization: Bearer {{jwt}}
   "title": "Iqlim o‘zgarishi ta’siri",
   "description": "Global isish va uning natijalari",
   "content": "Dunyo bo‘ylab iqlim o‘zgarishi oqibatida ob-havo hodisalari kuchaymoqda...",
-  "imageId": 98765,
+  "imageId": "19079cda-61f4-47fe-ab9d-b51cea697b63.jpg",
   "regionId": 3,
   "readTime": 8,
   "moderatorId": 202,
@@ -79,7 +79,7 @@ Authorization: Bearer {{jwt}}
   "title": "mmmmYangilik nomi",
   "description": "mmmBu yangilikning qisqacha tavsifi",
   "content": "Bu yangilikning to‘liq matni va mazmuni",
-  "imageId": 124345,
+  "imageId": "19079cda-61f4-47fe-ab9d-b51cea697b63.jpg",
   "regionId": 2,
   "readTime": 5,
   "moderatorId": 101,
@@ -114,7 +114,7 @@ Authorization: Bearer {{jwt}}
 
 
 ### Delete
-DELETE http://localhost:8080/article/delete/2
+DELETE http://localhost:8080/article/delete/5
 Authorization: Bearer {{jwt}}
 
 
@@ -122,34 +122,74 @@ Authorization: Bearer {{jwt}}
 GET http://localhost:8080/article/getBySectionId/2/3
 Authorization: Bearer {{jwt}}
 
-### Get
+### Get // not working
 GET http://localhost:8080/article/getLastN
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
-  [1, 2]
+  [5, 6]
 
 
 ### Get
-GET http://localhost:8080/article/getLastNArticlesByCategoryId/2/1
+GET http://localhost:8080/article/getLastNArticlesByCategoryId/1/3
 Authorization: Bearer {{jwt}}
 
 ### Get
-GET http://localhost:8080/article/getLastNByRegionId/2/3
+GET http://localhost:8080/article/getLastNByRegionId/2/1
 Authorization: Bearer {{jwt}}
 
 ### Get
-GET http://localhost:8080/article/getNMostReadArticles/5
+GET http://localhost:8080/article/getNMostReadArticles/1
 Authorization: Bearer {{jwt}}
 
 ### Get
-PUT http://localhost:8080/article/increaseArticleViewCountByArticleId/2
+PUT http://localhost:8080/article/increaseArticleViewCountByArticleId/5
 Authorization: Bearer {{jwt}}
 
 ### Get
-PUT http://localhost:8080/article/increaseArticleSharedCountByArticleId/2
+PUT http://localhost:8080/article/increaseArticleSharedCountByArticleId/5
+Authorization: Bearer {{jwt}}
+
+### Get by id and lang
+GET http://localhost:8080/article/get-by-lang/6
+Accept-Language: RU
+Authorization: Bearer {{jwt}}
+
+### Get by id and lang
+GET http://localhost:8080/article/get-last-n-article?limit=2
+Authorization: Bearer {{jwt}}
+
+### Get by id and lang
+GET http://localhost:8080/article/get-by-tag-name?tagName=java&limit=1
 Authorization: Bearer {{jwt}}
 
 
+### Search
+POST http://localhost:8080/article/search?page=0&size=10
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "title": "Yangilik nomi"
+}
+
+
+### POST
+POST http://localhost:8080/article/filter?page=1&size=8
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "categoryId": 2
+}
+
+### POST
+POST http://localhost:8080/article/filterForModerator?page=1&size=3
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "regionId": 2
+}
 
 

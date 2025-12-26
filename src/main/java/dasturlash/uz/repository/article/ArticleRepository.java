@@ -1,5 +1,6 @@
 package dasturlash.uz.repository.article;
 
+import dasturlash.uz.dto.article.ArticleFilterDTO;
 import dasturlash.uz.entity.article.ArticleEntity;
 import dasturlash.uz.enums.ArticleStatus;
 import dasturlash.uz.mapper.ArticleShortInfoMapper;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -66,18 +68,21 @@ public interface ArticleRepository extends CrudRepository<ArticleEntity, Long> {
             " p.name as moderName, p.surname as moderSurname," +
             " c.name_uz as categoryName " +
             " from  article a " +
-            " inner join profile as p on p.id =a.moderator_id " +
-            " inner join article_category  as ac on ac.article_id = a.id " +
+            " inner join profile as p on p.id = a.moderator_id " +
+            " inner join article_category as ac on ac.article_id = a.id " +
             " inner join category as c on c.id = ac.category_id " +
             " where a.visible = true and a.status = 'PUBLISHED' " +
-            " and ac.category_id = (select ac2.id from article_category as ac2 where ac2.article_id = a.id limit 1) " +
-            " order by a.created_date desc  limit ?1", nativeQuery = true)
+            " and ac.category_id = (select ac2.category_id from article_category as ac2 where ac2.article_id = a.id limit 1) " +
+            " order by a.created_date desc limit ?1", nativeQuery = true)
     List<ArticleShortInfoMapper> getLastNArticle(int limit);
 
 
     @Query("select a from ArticleEntity a where a.visible = true and a.status = 'PUBLISHED' and a.tagName = ?1 order by a.createdDate desc limit ?2")
     List<ArticleEntity> getNArticlesByTagName(String tagName, int limit);
 
-    @Query("select a from ArticleEntity a where a.visible = true and a.status = 'PUBLISHED' and a.title ilike '%title%' order by a.createdDate desc")
-    Page<ArticleShortInfoMapper> findByTitle(String title , Pageable pageRequest);
+    @Query("SELECT a FROM ArticleEntity a " +
+            "WHERE a.visible = true " +
+            "AND a.status = 'PUBLISHED' " +
+            "AND LOWER(a.title) LIKE LOWER(CONCAT('%', :title, '%')) ")
+    Page<ArticleEntity> findByTitle(@Param("title") String title, Pageable pageRequest);
 }

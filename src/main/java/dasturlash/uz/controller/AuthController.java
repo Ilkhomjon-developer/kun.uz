@@ -6,16 +6,17 @@ import dasturlash.uz.dto.auth.RegistrationDTO;
 import dasturlash.uz.dto.auth.VerificationDTO;
 import dasturlash.uz.service.AuthService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 
 
     @PostMapping("/registration")

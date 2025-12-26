@@ -1,6 +1,7 @@
 package dasturlash.uz.dto.profile;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import dasturlash.uz.dto.AttachDTO;
 import dasturlash.uz.enums.ProfileRole;
 import dasturlash.uz.enums.ProfileStatus;
 import jakarta.validation.constraints.NotBlank;
@@ -35,6 +36,7 @@ public class ProfileDTO {
     private LocalDateTime createdDate;
     private String token;
     private String jwt;
+    private AttachDTO photo;
 
 
 }

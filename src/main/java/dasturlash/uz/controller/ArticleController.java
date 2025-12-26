@@ -3,6 +3,7 @@ package dasturlash.uz.controller;
 import dasturlash.uz.dto.article.ArticleCreateDTO;
 import dasturlash.uz.dto.article.ArticleDTO;
 import dasturlash.uz.dto.article.ArticleFilterDTO;
+import dasturlash.uz.entity.article.ArticleEntity;
 import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.enums.ArticleStatus;
 import dasturlash.uz.mapper.ArticleShortInfoMapper;
@@ -37,7 +38,7 @@ public class ArticleController {
     @PreAuthorize("hasRole('MODERATOR')")
     @DeleteMapping("/delete/{articleId}")
     public ResponseEntity<String> delete(@PathVariable Long articleId){
-      return   ResponseEntity.ok(articleService.delete(articleId));
+      return  ResponseEntity.ok(articleService.delete(articleId));
     }
 
     @PreAuthorize("hasRole('PUBLISHER')")
@@ -98,22 +99,21 @@ public class ArticleController {
         return ResponseEntity.ok(articleService.getNArticlesByTagName(tagName, limit));
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_PUBLISHER','ROLE_ADMIN')")
     @PostMapping("/filter")
-    public ResponseEntity<Page<ArticleFilterDTO>> filter(@RequestBody ArticleFilterDTO filter, @RequestParam("page") int page, @RequestParam("size") int size){
-        return ResponseEntity.ok(articleService.filter(filter, page, size));
+    public ResponseEntity<Page<ArticleDTO>> filter(@RequestBody ArticleFilterDTO filter, @RequestParam("page") int page, @RequestParam("size") int size){
+        return ResponseEntity.ok(articleService.filter(filter, page-1, size, false));
     }
 
+    @PreAuthorize("hasRole('ROLE_MODERATOR')")
     @PostMapping("/filterForModerator")
-    public ResponseEntity<Page<ArticleFilterDTO>> filterForModerator(@RequestBody ArticleFilterDTO filter, @RequestParam("page") int page, @RequestParam("size") int size) {
-        return ResponseEntity.ok(articleService.filterForModerator(filter, page, size));
-    }
-    @PostMapping("/filterForPublisher")
-    public ResponseEntity<Page<ArticleFilterDTO>> filterForPublisher(@RequestBody ArticleFilterDTO filter, @RequestParam("page") int page, @RequestParam("size") int size){
-        return ResponseEntity.ok(articleService.filterForPublisher(filter, page, size));
+    public ResponseEntity<Page<ArticleDTO>> filterForModerator(@RequestBody ArticleFilterDTO filter, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return ResponseEntity.ok(articleService.filter(filter, page-1, size, true));
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<Page<ArticleShortInfoMapper>> search(@RequestParam("title") String title, @RequestParam("page") int page, @RequestParam("size") int size){
-        return ResponseEntity.ok(articleService.search(title, page, size));
+
+    @PostMapping("/search")
+    public ResponseEntity<Page<ArticleFilterDTO>> search(@RequestBody ArticleFilterDTO dto, @RequestParam("page") int page, @RequestParam("size") int size){
+        return ResponseEntity.ok(articleService.search(dto, page-1, size));
     }
 }

@@ -4,6 +4,7 @@ import dasturlash.uz.dto.SectionDTO;
 import dasturlash.uz.enums.AppLanguageEnum;
 import dasturlash.uz.service.SectionService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,10 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/section")
+@RequiredArgsConstructor
 public class SectionController {
 
-    @Autowired
-    private SectionService sectionService;
+    private final SectionService sectionService;
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/create")

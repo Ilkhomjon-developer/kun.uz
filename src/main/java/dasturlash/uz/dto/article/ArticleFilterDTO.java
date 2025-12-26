@@ -3,6 +3,8 @@ package dasturlash.uz.dto.article;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 public class ArticleFilterDTO {
@@ -11,6 +13,6 @@ public class ArticleFilterDTO {
     private Long regionId;
     private Long categoryId;
     private Long sectionId;
-    private String publishedDateFrom;
-    private String publishedDateTo;
+    private LocalDateTime createdDateFrom;
+    private LocalDateTime createdDateTo;
 }
